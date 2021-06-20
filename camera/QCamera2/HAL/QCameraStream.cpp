@@ -369,14 +369,8 @@ QCameraStream::QCameraStream(QCameraAllocator &allocator,
     mFirstTimeStamp = 0;
     memset (&mStreamMetaMemory, 0,
             (sizeof(MetaMemory) * CAMERA_MIN_VIDEO_BATCH_BUFFERS));
-    pthread_condattr_t mCondAttr;
-
-    pthread_condattr_init(&mCondAttr);
-    pthread_condattr_setclock(&mCondAttr, CLOCK_MONOTONIC);
-
     pthread_mutex_init(&m_lock, NULL);
-    pthread_cond_init(&m_cond, &mCondAttr);
-    pthread_condattr_destroy(&mCondAttr);
+    pthread_cond_init(&m_cond, NULL);
 }
 
 /*===========================================================================
@@ -821,8 +815,8 @@ int32_t QCameraStream::calcOffset(cam_stream_info_t *streamInfo)
                 &streamInfo->buf_planes);
         break;
     case CAM_STREAM_TYPE_VIDEO:
-         rc = mm_stream_calc_offset_video(streamInfo,
-                  &mPaddingInfo, &streamInfo->buf_planes);
+        rc = mm_stream_calc_offset_video(streamInfo->fmt,
+                &dim, &streamInfo->buf_planes);
         break;
     case CAM_STREAM_TYPE_RAW:
         rc = mm_stream_calc_offset_raw(streamInfo->fmt,

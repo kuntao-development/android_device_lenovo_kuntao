@@ -52,9 +52,9 @@ on enable-low-power
     chown system system /sys/devices/soc/qpnp-flash-led-22/leds/led:torch_1/max_brightness
     chmod 0660 /sys/devices/soc/qpnp-flash-led-22/leds/led:torch_1/max_brightness
 
-    # Sweep2 sleep
-    chmod 0660 /sys/sweep2sleep/sweep2sleep
-    chown system system /sys/sweep2sleep/sweep2sleep
+    # FPS Info
+    chown system graphics /sys/class/graphics/fb0/measured_fps
+    chmod 0666 /sys/class/graphics/fb0/measured_fps
 
     # Sound control
     chmod 0660 /sys/kernel/sound_control/headphone_gain

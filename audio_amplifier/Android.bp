@@ -1,0 +1,30 @@
+//
+// Copyright (C) 2017-2021 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_shared {
+    name: "audio_amplifier.msm8953",
+    srcs: ["audio_amplifier.c"],
+    vendor: true,
+    relative_install_path: "hw",
+
+    include_dirs: [
+        "hardware/qcom-caf/msm8996/audio/hal",
+    ],
+
+    cflags: [
+        "-Wno-unused-parameter",
+    ],
+
+    shared_libs: [
+        "liblog",
+        "libcutils",
+    ],
+
+    header_libs: [
+        "generated_kernel_headers",
+        "libhardware_headers",
+    ],
+}

@@ -17,7 +17,11 @@
     <array name="radio.on">
         <value>7.11</value>
     </array>
-    <array name="cpu.core_speeds">
+    <array name="cpu.clusters.cores">
+        <value>4</value>
+        <value>4</value>
+    </array>
+    <array name="cpu.speeds.cluster0">
         <value>652800</value>
         <value>1036800</value>
         <value>1401600</value>
@@ -26,7 +30,7 @@
         <value>1958400</value>
         <value>2016000</value>
     </array>
-    <array name="cpu.core_power">
+    <array name="cpu.active.cluster0">
         <value>96</value>
         <value>109</value>
         <value>123</value>
@@ -35,7 +39,25 @@
         <value>171</value>
         <value>181</value>
     </array>
-    <item name="cpu.idle">93</item>
+    <array name="cpu.speeds.cluster1">
+        <value>652800</value>
+        <value>1036800</value>
+        <value>1401600</value>
+        <value>1689600</value>
+        <value>1804800</value>
+        <value>1958400</value>
+        <value>2016000</value>
+    </array>
+    <array name="cpu.active.cluster1">
+        <value>96</value>
+        <value>109</value>
+        <value>123</value>
+        <value>144</value>
+        <value>160</value>
+        <value>171</value>
+        <value>181</value>
+    </array>
     <item name="cpu.suspend">4.23</item>
+    <item name="cpu.idle">93</item>
     <item name="battery.capacity">5100</item>
 </device>

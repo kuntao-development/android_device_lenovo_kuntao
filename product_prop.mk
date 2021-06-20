@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2020 AIMROM
-# Copyright (C) 2020 KudProject Development
+# Copyright (C) 2017-2021 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #

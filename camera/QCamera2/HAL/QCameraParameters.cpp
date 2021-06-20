@@ -40,7 +40,7 @@
 #define SYSINFO_H <SYSTEM_HEADER_PREFIX/sysinfo.h>
 #include SYSINFO_H
 #include "gralloc_priv.h"
-#include "graphics.h"
+#include "system/graphics.h"
 
 // Camera dependencies
 #include "QCameraBufferMaps.h"
@@ -3591,7 +3591,6 @@ int32_t QCameraParameters::setSceneMode(const QCameraParameters& params)
                 // If HDR is set from client  and the feature is not enabled in the backend, ignore it.
                 if (m_bHDRModeSensor && isSupportedSensorHdrSize(params)) {
                     m_bSensorHDREnabled = true;
-                    m_bHDREnabled = false;
                     LOGH("Sensor HDR mode Enabled");
                 } else {
                     m_bHDREnabled = true;
@@ -5363,7 +5362,7 @@ int32_t QCameraParameters::initDefaultParameters()
        m_pCapability->raw_dim[0].width, m_pCapability->raw_dim[0].height);
 
     //set default jpeg quality and thumbnail quality
-    set(KEY_JPEG_QUALITY, 95);
+    set(KEY_JPEG_QUALITY, 85);
     set(KEY_JPEG_THUMBNAIL_QUALITY, 85);
 
     // Set FPS ranges
@@ -5457,7 +5456,7 @@ int32_t QCameraParameters::initDefaultParameters()
     m_pCapability->min_focus_pos[CAM_MANUAL_FOCUS_MODE_DIOPTER] = 0;
     if (m_pCapability->min_focus_distance > 0) {
         m_pCapability->max_focus_pos[CAM_MANUAL_FOCUS_MODE_DIOPTER] =
-                m_pCapability->min_focus_distance;
+                100.0f / m_pCapability->min_focus_distance;
     } else {
         m_pCapability->max_focus_pos[CAM_MANUAL_FOCUS_MODE_DIOPTER] = 0;
     }
@@ -5514,7 +5513,7 @@ int32_t QCameraParameters::initDefaultParameters()
             AUTO_EXPOSURE_MAP,
             PARAM_MAP_SIZE(AUTO_EXPOSURE_MAP));
     set(KEY_QC_SUPPORTED_AUTO_EXPOSURE, autoExposureValues.string());
-    setAutoExposure(AUTO_EXPOSURE_CENTER_WEIGHTED);
+    setAutoExposure(AUTO_EXPOSURE_FRAME_AVG);
 
     // Set Exposure Compensation
     set(KEY_MAX_EXPOSURE_COMPENSATION, m_pCapability->exposure_compensation_max); // 12
@@ -5546,7 +5545,7 @@ int32_t QCameraParameters::initDefaultParameters()
             ANTIBANDING_MODES_MAP,
             PARAM_MAP_SIZE(ANTIBANDING_MODES_MAP));
     set(KEY_SUPPORTED_ANTIBANDING, antibandingValues);
-    setAntibanding(ANTIBANDING_AUTO);
+    setAntibanding(ANTIBANDING_OFF);
 
     // Set Effect
     String8 effectValues = createValuesString(
@@ -6151,9 +6150,6 @@ int32_t QCameraParameters::init(cam_capability_t *capabilities,
 {
     int32_t rc = NO_ERROR;
 
-    // Set default sharpness to 1
-    capabilities->sharpness_ctrl.def_value = 6;
-
     m_pCapability = capabilities;
     m_pCamOpsTbl = mmOps;
     m_AdjustFPS = adjustFPS;
@@ -6440,13 +6436,11 @@ int32_t QCameraParameters::setPreviewFpsRange(int min_fps,
     property_get("persist.debug.set.fixedfps", value, "0");
     fixedFpsValue = atoi(value);
 
-    // Workaround backend AEC bug that doesn't set high enough ISO values when the min FPS value
-    // is higher than expected, which resulted in a very dark preview in low light conditions
-    // while recording. The lowest FPS value AEC expects in such conditions is 19.99, so 15fps
-    // as the min FPS value should be sufficient.
-    if (!isHfrMode() && min_fps > 15000) {
-        LOGH("Original min_fps %d, changing min_fps to 15000", min_fps);
-        min_fps = 15000;
+    // Don't allow function callers to request min fps same as max fps
+    // I mean SnapdragonCamera.
+    if (!isHfrMode() && max_fps >= 24000 && min_fps == max_fps) {
+        LOGH("min_fps %d same as max_fps %d, setting min_fps to 7000", min_fps, max_fps);
+        min_fps = 7000;
     }
 
     LOGD("E minFps = %d, maxFps = %d , vid minFps = %d, vid maxFps = %d",
@@ -10671,7 +10665,7 @@ uint32_t QCameraParameters::getJpegQuality()
 {
     int quality = getInt(KEY_JPEG_QUALITY);
     if (quality < 0) {
-        quality = 95; // set to default quality value
+        quality = 85; // set to default quality value
     }
     return (uint32_t)quality;
 }
@@ -11351,10 +11345,6 @@ int32_t QCameraParameters::setFaceDetection(bool enabled, bool initCommit)
     uint32_t faceProcMask = m_nFaceProcMask;
     // set face detection mask
     if (enabled) {
-        if (m_pCapability->max_num_roi == 0) {
-            LOGE("Face detection is not support becuase max number of face is 0");
-            return BAD_VALUE;
-        }
         faceProcMask |= CAM_FACE_PROCESS_MASK_DETECTION;
         if (getRecordingHintValue() > 0) {
             faceProcMask = 0;

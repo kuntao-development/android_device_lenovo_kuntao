@@ -16,7 +16,7 @@
 -->
 <resources>
     <string name="fp_gestures_title">Hareketler</string>
-    <string name="fingerprint_kuntao_title">Parmak izi</string>
+    <string name="fingerprint_kuntao_title">Hareketler</string>
     <string name="fingerprint_gestures_title">Parmak izi hareketleri</string>
-    <string name="fingerprint_gestures_summary">Geri gitmek için dokunun, son uygulamaları görüntülemek için uzun basın</string>
+    <string name="fingerprint_gestures_summary">Geri gitmek için dokunun, son uygulamaları görüntülemek için basılı tutun | Not: Çalışması için navbarı kapatmanız gerekir</string>
 </resources>

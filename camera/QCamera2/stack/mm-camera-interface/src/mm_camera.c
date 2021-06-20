@@ -261,7 +261,6 @@ int32_t mm_camera_open(mm_camera_obj_t *my_obj)
     int cam_idx = 0;
     const char *dev_name_value = NULL;
     int l_errno = 0;
-    pthread_condattr_t cond_attr;
 
     LOGD("begin\n");
 
@@ -324,14 +323,11 @@ int32_t mm_camera_open(mm_camera_obj_t *my_obj)
         rc = -1;
         goto on_error;
     }
-    pthread_condattr_init(&cond_attr);
-    pthread_condattr_setclock(&cond_attr, CLOCK_MONOTONIC);
-
     pthread_mutex_init(&my_obj->msg_lock, NULL);
+
     pthread_mutex_init(&my_obj->cb_lock, NULL);
     pthread_mutex_init(&my_obj->evt_lock, NULL);
-    pthread_cond_init(&my_obj->evt_cond, &cond_attr);
-    pthread_condattr_destroy(&cond_attr);
+    pthread_cond_init(&my_obj->evt_cond, NULL);
 
     LOGD("Launch evt Thread in Cam Open");
     snprintf(my_obj->evt_thread.threadName, THREAD_NAME_SIZE, "CAM_Dispatch");
@@ -1735,7 +1731,7 @@ void mm_camera_util_wait_for_event(mm_camera_obj_t *my_obj,
 
     pthread_mutex_lock(&my_obj->evt_lock);
     while (!(my_obj->evt_rcvd.server_event_type & evt_mask)) {
-        clock_gettime(CLOCK_MONOTONIC, &ts);
+        clock_gettime(CLOCK_REALTIME, &ts);
         ts.tv_sec += WAIT_TIMEOUT;
         rc = pthread_cond_timedwait(&my_obj->evt_cond, &my_obj->evt_lock, &ts);
         if (rc) {
