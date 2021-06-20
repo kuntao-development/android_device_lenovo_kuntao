@@ -6,8 +6,6 @@ allow system_app sysfs_kcal:dir search;
 allow system_app sysfs_kcal:file rw_file_perms;
 allow system_app sysfs_vibrator:dir search;
 allow system_app sysfs_vibrator:file rw_file_perms;
-allow system_app sysfs_s2s:dir search;
-allow system_app sysfs_s2s:file rw_file_perms;
 allow system_app sysfs_torch:dir search;
 allow system_app sysfs_torch:file rw_file_perms;
 allow system_app sysfs_touchpanel:dir search;
@@ -16,6 +14,18 @@ allow system_app sysfs_headphonegain:file rw_file_perms;
 allow system_app sysfs_micgain:file rw_file_perms;
 allow system_app sysfs_speakergain:file rw_file_perms;
 
+# Pagetype info
+allow system_app proc_pagetypeinfo:file r_file_perms;
+
+# Poweroff alarm
+allow system_app hal_alarm_qti_hwservice:hwservice_manager find;
+
 # Cast
 typeattribute system_app system_executes_vendor_violators;
 allow system_app vendor_file:file { execute execute_no_trans getattr open read };
+
+# FPS info
+allow system_app sysfs_fps:file rw_file_perms;
+
+# Wificond
+binder_call(system_app, wificond);

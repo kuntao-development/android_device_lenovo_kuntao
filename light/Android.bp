@@ -17,6 +17,7 @@ cc_binary {
     relative_install_path: "hw",
     vendor: true,
     init_rc: ["android.hardware.light@2.0-service.kuntao.rc"],
+    vintf_fragments: ["android.hardware.light@2.0-service.kuntao.xml"],
     defaults: ["hidl_defaults"],
     srcs: ["service.cpp", "Light.cpp"],
 

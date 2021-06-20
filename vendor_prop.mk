@@ -23,6 +23,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.fluence.voicecall=true \
     persist.vendor.audio.fluence.voicerec=false \
     ro.vendor.audio.sdk.fluencetype=none \
+    ro.config.media_vol_steps=25 \
+    ro.config.vc_call_vol_steps=6 \
     vendor.audio_hal.period_size=192 \
     vendor.audio.hw.aac.encoder=true \
     vendor.audio.offload.buffer.size.kb=64 \
@@ -47,7 +49,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.camera.display.umax=1920x1080 \
     persist.vendor.camera.display.lmax=1280x720 \
-    camera.lowpower.record.enable=1 \
+    vendor.camera.lowpower.record.enable=1 \
     vidc.enc.dcvs.extra-buff-count=2 \
     persist.camera.HAL3.enabled=1
 
@@ -128,6 +130,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.vidc.dec.downscalar_width=1920 \
     vendor.vidc.dec.downscalar_height=1088 \
     vendor.vidc.disable.split.mode=1 \
+    vendor.vidc.enc.disable.pq=true \
     vendor.vidc.enc.disable_bframes=1 \
     vendor.vidc.enc.disable_pframes=1 \
     vendor.vidc.enc.narrow.searchrange=1
@@ -138,20 +141,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Nitz
 PRODUCT_PROPERTY_OVERRIDES += \
-   persist.vendor.radio.nitz_plmn="" \
-   persist.vendor.radio.nitz_lons_0="" \
-   persist.vendor.radio.nitz_lons_1="" \
-   persist.vendor.radio.nitz_lons_2="" \
-   persist.vendor.radio.nitz_lons_3="" \
-   persist.vendor.radio.nitz_sons_0="" \
-   persist.vendor.radio.nitz_sons_1="" \
-   persist.vendor.radio.nitz_sons_2="" \
-   persist.vendor.radio.nitz_sons_3=""
+    persist.vendor.radio.nitz_plmn="" \
+    persist.vendor.radio.nitz_lons_0="" \
+    persist.vendor.radio.nitz_lons_1="" \
+    persist.vendor.radio.nitz_lons_2="" \
+    persist.vendor.radio.nitz_lons_3="" \
+    persist.vendor.radio.nitz_sons_0="" \
+    persist.vendor.radio.nitz_sons_1="" \
+    persist.vendor.radio.nitz_sons_2="" \
+    persist.vendor.radio.nitz_sons_3=""
 
 # Qualcomm
 PRODUCT_PROPERTY_OVERRIDES += \
-   ro.vendor.qti.va_aosp.support=1 \
-   ro.vendor.qti.va_odm.support=1
+    ro.vendor.qti.va_aosp.support=1 \
+    ro.vendor.qti.va_odm.support=1
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -161,6 +164,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.multisim.config=dsds \
     ro.telephony.default_network=9,1 \
     ro.telephony.use_old_mnc_mcc_format=true \
+    persist.vendor.radio.add_power_save=1 \
     persist.vendor.radio.custom_ecc=1 \
     persist.vendor.radio.rat_on=combine \
     persist.vendor.radio.sib16_support=1

@@ -67,7 +67,7 @@ public class ButtonSettingsFragment extends PreferenceFragment
     }
 
     private void doFingerprintGesturesPreferenceChange(SharedPreferences sharedPrefs) {
-        boolean enabled = sharedPrefs.getBoolean(Constants.FINGERPRINT_GESTURES_KEY, false);
+        boolean enabled = sharedPrefs.getBoolean(Constants.FINGERPRINT_GESTURES_KEY, true);
         Utils.broadcastFingerprintGesturesEnabled(getContext(), enabled);
     }
 }

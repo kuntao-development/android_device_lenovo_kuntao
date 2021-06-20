@@ -1,4 +1,2 @@
-get_prop(untrusted_app, exported_camera_prop);
-
 # Magisk
 get_prop(untrusted_app, virtual_ab_prop);
