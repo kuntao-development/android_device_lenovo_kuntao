@@ -142,7 +142,6 @@ firmware_directories /vendor/firmware_mnt/image/
 /dev/msm_vidc_enc         0660   system     audio
 /dev/msm_rotator          0660   system     system
 /dev/sdsprpc-smd          0660   system     system
-/dev/cpu_dma_latency      0660   root       system
 
 #permissions for audio
 /dev/wcd_dsp0_control     0660   system     audio

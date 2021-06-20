@@ -28,7 +28,7 @@ import com.android.internal.os.DeviceKeyHandler;
 public class KeyHandler implements DeviceKeyHandler {
 
     private final Context mContext;
-    private boolean mFingerprintGesturesEnabled = true;
+    private boolean mFingerprintGesturesEnabled = false;
     private static long time = 0;
     private static long time1 = 0;
     private static final String TAG = "keyLogs";
@@ -73,6 +73,7 @@ public class KeyHandler implements DeviceKeyHandler {
 
         return event;
     }
+
 
     private BroadcastReceiver mFingerprintGesturesReceiver = new BroadcastReceiver() {
         @Override

@@ -37,7 +37,7 @@
 #include <utils/List.h>
 
 // Camera dependencies
-#include "hardware/camera3.h"
+#include "camera3.h"
 #include "QCamera3Channel.h"
 #include "QCamera3CropRegionMapper.h"
 #include "QCamera3HALHeader.h"
@@ -310,6 +310,9 @@ private:
     void addToPPFeatureMask(int stream_format, uint32_t stream_idx);
     void updateFpsInPreviewBuffer(metadata_buffer_t *metadata, uint32_t frame_number);
 
+#ifndef USE_HAL_3_3
+    void updateTimeStampInPendingBuffers(uint32_t frameNumber, nsecs_t timestamp);
+#endif
     void enablePowerHint();
     void disablePowerHint();
     int32_t dynamicUpdateMetaStreamInfo();

@@ -15,6 +15,3 @@ allow smart_charger sysfs_temperature:file r_file_perms;
 
 allow smart_charger sysfs_usb_supply:dir search;
 allow smart_charger sysfs_usb_supply:file rw_file_perms;
-
-allow smart_charger sysfs_battery_supply:dir search;
-allow smart_charger sysfs_battery_supply:file rw_file_perms;

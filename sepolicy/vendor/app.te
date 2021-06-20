@@ -1,2 +1,0 @@
-# Allow appdomain to get exported_camera_prop
-get_prop(appdomain, exported_camera_prop);

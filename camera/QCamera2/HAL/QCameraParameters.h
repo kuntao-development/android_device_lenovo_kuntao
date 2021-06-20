@@ -28,7 +28,7 @@
 #include <utils/Errors.h>
 
 // Camera dependencies
-#include "hardware/camera.h"
+#include "camera.h"
 #include "QCameraMem.h"
 #include "QCameraParametersIntf.h"
 #include "QCameraThermalAdapter.h"

@@ -50,8 +50,14 @@ typedef struct {
 
 static inline void cam_sem_init(cam_semaphore_t *s, int n)
 {
+    pthread_condattr_t cond_attr;
+
+    pthread_condattr_init(&cond_attr);
+    pthread_condattr_setclock(&cond_attr, CLOCK_MONOTONIC);
+
     pthread_mutex_init(&(s->mutex), NULL);
-    pthread_cond_init(&(s->cond), NULL);
+    pthread_cond_init(&(s->cond), &cond_attr);
+    pthread_condattr_destroy(&cond_attr);
     s->val = n;
 }
 

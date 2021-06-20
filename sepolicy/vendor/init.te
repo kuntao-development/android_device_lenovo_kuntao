@@ -1,11 +1,2 @@
-# leds
-allow init sysfs_leds:lnk_file read;
-
 # Allow init to bind mount gps_debug.conf
 allow init system_file:file mounton;
-
-# Battery
-allow init sysfs_usb_supply:file setattr;
-
-# Other
-allow init sysfs:file setattr;

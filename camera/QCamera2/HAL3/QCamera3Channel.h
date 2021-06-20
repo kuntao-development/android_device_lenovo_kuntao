@@ -39,7 +39,7 @@
 // Camera dependencies
 #include "cam_intf.h"
 #include "cam_types.h"
-#include "hardware/camera3.h"
+#include "camera3.h"
 #include "QCamera3HALHeader.h"
 #include "QCamera3Mem.h"
 #include "QCamera3PostProc.h"
@@ -568,6 +568,8 @@ private:
     int32_t resetToCamPerfNormal(uint32_t frameNumber);
     android::List<OfflineBuffer> mOfflineBuffers;
     android::List<OfflineBuffer> mOfflineMetaBuffers;
+    Mutex mOfflineBuffersLock;
+    Mutex mOfflineMetaBuffersLock;
     int32_t mOfflineBuffersIndex;
     int32_t mOfflineMetaIndex;
     uint32_t mFrameLen;

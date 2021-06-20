@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="proper_seekbar_value">Değer: <xliff:g id="v">%s</xliff:g></string>
+  <string name="proper_seekbar_default_value">Varsayılan</string>
+  <string name="proper_seekbar_default_value_to_set">Varsayılan değer: <xliff:g id="v">%s</xliff:g>\nAyarlamak için uzun basın</string>
+  <string name="proper_seekbar_default_value_is_set">Varsayılan değer ayarlandı</string>
+</resources>

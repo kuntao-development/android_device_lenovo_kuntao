@@ -132,6 +132,7 @@ QCameraStateMachine::QCameraStateMachine(QCamera2HardwareInterface *ctrl) :
     m_DelayedMsgs = 0;
     m_RestoreZSL = TRUE;
     m_bPreviewCallbackNeeded = TRUE;
+    m_bPreviewRestartedInternal = FALSE;
 }
 
 /*===========================================================================
@@ -637,8 +638,9 @@ int32_t QCameraStateMachine::procEvtPreviewStoppedState(qcamera_sm_evt_enum_t ev
             LOGW("Free video handle %d %d", evt, m_state);
             QCameraVideoMemory::closeNativeHandle((const void *)payload);
         }
-        [[clang::fallthrough]];
+	[[fallthrough]];
     case QCAMERA_SM_EVT_PRE_START_RECORDING:
+	break;
     case QCAMERA_SM_EVT_RESTART_STOP_PREVIEW:
     case QCAMERA_SM_EVT_RESTART_START_PREVIEW:
     case QCAMERA_SM_EVT_START_RECORDING:
@@ -1058,8 +1060,9 @@ int32_t QCameraStateMachine::procEvtPreviewReadyState(qcamera_sm_evt_enum_t evt,
             LOGW("Free video handle %d %d", evt, m_state);
             QCameraVideoMemory::closeNativeHandle((const void *)payload);
         }
-        [[clang::fallthrough]];
+	[[fallthrough]];
     case QCAMERA_SM_EVT_PRE_START_RECORDING:
+	break;
     case QCAMERA_SM_EVT_RESTART_STOP_PREVIEW:
     case QCAMERA_SM_EVT_RESTART_START_PREVIEW:
     case QCAMERA_SM_EVT_START_RECORDING:
@@ -1322,9 +1325,9 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
         break;
     case QCAMERA_SM_EVT_STOP_PREVIEW:
         {
+            m_state = QCAMERA_SM_STATE_PREVIEW_STOPPED;
             rc = m_parent->stopPreview();
             applyDelayedMsgs();
-            m_state = QCAMERA_SM_STATE_PREVIEW_STOPPED;
             result.status = rc;
             result.request_api = evt;
             result.result_type = QCAMERA_API_RESULT_TYPE_DEF;
@@ -1595,10 +1598,9 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
             LOGW("Free video handle %d %d", evt, m_state);
             QCameraVideoMemory::closeNativeHandle((const void *)payload);
         }
-        [[clang::fallthrough]];
-    case QCAMERA_SM_EVT_CANCEL_PICTURE:
-    case QCAMERA_SM_EVT_STOP_RECORDING:
+	[[fallthrough]];
     case QCAMERA_SM_EVT_RELEASE:
+	break;
         {
             LOGE("Error!! cannot handle evt(%d) in state(%d)", evt, m_state);
             rc = INVALID_OPERATION;
@@ -1606,6 +1608,18 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
             result.request_api = evt;
             result.result_type = QCAMERA_API_RESULT_TYPE_DEF;
             m_parent->signalAPIResult(&result);
+        }
+        break;
+    case QCAMERA_SM_EVT_CANCEL_PICTURE:
+    case QCAMERA_SM_EVT_STOP_RECORDING:
+        {
+            // no op needed here
+            LOGW("No ops for evt(%d) in state(%d)", evt, m_state);
+            result.status = NO_ERROR;
+            result.request_api = evt;
+            result.result_type = QCAMERA_API_RESULT_TYPE_DEF;
+            m_parent->signalAPIResult(&result);
+
         }
         break;
     case QCAMERA_SM_EVT_EVT_INTERNAL:
@@ -2033,6 +2047,14 @@ int32_t QCameraStateMachine::procEvtPicTakingState(qcamera_sm_evt_enum_t evt,
         {
             // cancel picture first
             rc = m_parent->cancelPicture();
+
+            bool restartPreview = m_parent->isPreviewRestartEnabled();
+            if (restartPreview && m_bPreviewRestartedInternal) {
+                LOGW("preview early restarted, stop preivew now");
+                m_parent->stopPreview();
+                m_bPreviewRestartedInternal = FALSE;
+            }
+
             m_state = QCAMERA_SM_STATE_PREVIEW_STOPPED;
 
             result.status = rc;
@@ -2299,6 +2321,11 @@ int32_t QCameraStateMachine::procEvtPicTakingState(qcamera_sm_evt_enum_t evt,
                     applyDelayedMsgs();
                     rc = m_parent->startPreview();
                 }
+
+                /* set internal preivew restarted flag here,
+                 * because we hw is streaming now
+                 */
+                m_bPreviewRestartedInternal = true;
             }
 
             result.status = rc;
@@ -2324,6 +2351,11 @@ int32_t QCameraStateMachine::procEvtPicTakingState(qcamera_sm_evt_enum_t evt,
                         rc = m_parent->startPreview();
                     }
                 }
+
+                /* reset internal restarted preview flag,
+                 * since we set the state to previewing exciptly
+                 */
+                m_bPreviewRestartedInternal = FALSE;
                 m_state = QCAMERA_SM_STATE_PREVIEWING;
             } else {
                 m_state = QCAMERA_SM_STATE_PREVIEW_STOPPED;

@@ -1,171 +1,148 @@
+/*
+* Copyright (C) 2016 The OmniROM Project
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.com/licenses/>.
+*
+*/
 package com.lenovo.parts;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceCategory;
+import android.os.Bundle;
+import android.os.SystemProperties;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+import android.util.Log;
+
 import androidx.preference.PreferenceFragment;
-import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceClickListener;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceManager;
+import androidx.preference.TwoStatePreference;
 
-import com.lenovo.parts.kcal.KCalSettingsActivity;
-import com.lenovo.parts.ambient.AmbientGesturePreferenceActivity;
-import com.lenovo.parts.preferences.SecureSettingListPreference;
-import com.lenovo.parts.preferences.SecureSettingSwitchPreference;
-import com.lenovo.parts.preferences.VibrationSeekBarPreference;
-import com.lenovo.parts.preferences.CustomSeekBarPreference;
-
-import com.lenovo.parts.R;
+import com.lenovo.parts.sound.SoundControlActivity;
 
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String TAG = "LenovoParts";
-
-    private static final String CATEGORY_DISPLAY = "display";
-    private static final String PREF_DEVICE_KCAL = "device_kcal";
-
-    private static final String AMBIENT_DISPLAY = "ambient_display_gestures";
-
-    public static final String PREF_VIBRATION_STRENGTH = "vibration_strength";
-    public static final String VIBRATION_STRENGTH_PATH = "/sys/devices/virtual/timed_output/vibrator/vtg_level";
-
-    public static final String PREF_KEY_FPS_INFO = "fps_info";
-
-    // value of vtg_min and vtg_max
-    public static final int MIN_VIBRATION = 116;
-    public static final int MAX_VIBRATION = 3596;
-
-    public static final  String PREF_HEADPHONE_GAIN = "headphone_gain";
-    public static final  String PREF_MICROPHONE_GAIN = "microphone_gain";
-    public static final  String PREF_SPEAKER_GAIN = "speaker_gain";
-    public static final  String HEADPHONE_GAIN_PATH = "/sys/kernel/sound_control/headphone_gain";
-    public static final  String MICROPHONE_GAIN_PATH = "/sys/kernel/sound_control/mic_gain";
-    public static final  String SPEAKER_GAIN_PATH = "/sys/kernel/sound_control/speaker_gain";
-
+    public static final String S2S_KEY = "sweep2sleep";
+    public static final String KEY_VIBSTRENGTH = "vib_strength";
+    public static final String FILE_S2S_TYPE = "/sys/sweep2sleep/sweep2sleep";
     public static final String KEY_YELLOW_TORCH_BRIGHTNESS = "yellow_torch_brightness";
     public static final String KEY_WHITE_TORCH_BRIGHTNESS = "white_torch_brightness";
-    private static final String TORCH_1_BRIGHTNESS_PATH = "/sys/devices/soc/qpnp-flash-led-22/leds/led:torch_0/max_brightness";
-    private static final String TORCH_2_BRIGHTNESS_PATH = "/sys/devices/soc/qpnp-flash-led-22/leds/led:torch_1/max_brightness";
+    public static final String KEY_GLOVE_MODE = "glove_mode";
 
-    public static final String PREF_GLOVE_MODE = "glove_mode";
-    public static final String GLOVE_MODE_PATH = "/sys/board_properties/tpd_glove_status";
+    private static final String GLOVE_MODE_FILE = "/sys/board_properties/tpd_glove_status";
+    private static final String KEY_CATEGORY_DISPLAY = "display";
+
+    private ListPreference mS2S;
+    private VibratorStrengthPreference mVibratorStrength;
+    private YellowTorchBrightnessPreference mYellowTorchBrightness;
+    private WhiteTorchBrightnessPreference mWhiteTorchBrightness;
+    private TwoStatePreference mGloveMode;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.lenovo_main, rootKey);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        setPreferencesFromResource(R.xml.main, rootKey);
 
-        VibrationSeekBarPreference vibrationStrength = (VibrationSeekBarPreference) findPreference(PREF_VIBRATION_STRENGTH);
-        vibrationStrength.setEnabled(FileUtils.fileWritable(VIBRATION_STRENGTH_PATH));
-        vibrationStrength.setOnPreferenceChangeListener(this);
+        PreferenceScreen prefSet = getPreferenceScreen();
 
-        CustomSeekBarPreference headphone_gain = (CustomSeekBarPreference) findPreference(PREF_HEADPHONE_GAIN);
-        headphone_gain.setEnabled(FileUtils.fileWritable(HEADPHONE_GAIN_PATH));
-        headphone_gain.setOnPreferenceChangeListener(this);
-
-        CustomSeekBarPreference microphone_gain = (CustomSeekBarPreference) findPreference(PREF_MICROPHONE_GAIN);
-        microphone_gain.setEnabled(FileUtils.fileWritable(MICROPHONE_GAIN_PATH));
-        microphone_gain.setOnPreferenceChangeListener(this);
-
-        CustomSeekBarPreference speaker_gain = (CustomSeekBarPreference) findPreference(PREF_SPEAKER_GAIN);
-        speaker_gain.setEnabled(FileUtils.fileWritable(SPEAKER_GAIN_PATH));
-        speaker_gain.setOnPreferenceChangeListener(this);
-
-        CustomSeekBarPreference white_torch_brightness = (CustomSeekBarPreference) findPreference(KEY_WHITE_TORCH_BRIGHTNESS);
-        white_torch_brightness.setEnabled(FileUtils.fileWritable(TORCH_1_BRIGHTNESS_PATH));
-        white_torch_brightness.setOnPreferenceChangeListener(this);
-
-        CustomSeekBarPreference yellow_torch_brightness = (CustomSeekBarPreference) findPreference(KEY_YELLOW_TORCH_BRIGHTNESS);
-        yellow_torch_brightness.setEnabled(FileUtils.fileWritable(TORCH_2_BRIGHTNESS_PATH));
-        yellow_torch_brightness.setOnPreferenceChangeListener(this);
-
-        PreferenceCategory displayCategory = (PreferenceCategory) findPreference(CATEGORY_DISPLAY);
-
-        SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);
-        fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));
-        fpsInfo.setOnPreferenceChangeListener(this);
-
-        SwitchPreference glovemode = (SecureSettingSwitchPreference) findPreference(PREF_GLOVE_MODE);
-        glovemode.setEnabled(FileUtils.fileWritable(GLOVE_MODE_PATH));
-        glovemode.setChecked(FileUtils.getFileValueAsBoolean(GLOVE_MODE_PATH, true));
-        glovemode.setOnPreferenceChangeListener(this);
-
-        Preference kcal = findPreference(PREF_DEVICE_KCAL);
-        kcal.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getActivity().getApplicationContext(), KCalSettingsActivity.class);
-            startActivity(intent);
-            return true;
+        PreferenceScreen mSoundControlPref = (PreferenceScreen) findPreference("sound_control");
+        mSoundControlPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+             @Override
+             public boolean onPreferenceClick(Preference preference) {
+                 Intent intent = new Intent(getActivity().getApplicationContext(), SoundControlActivity.class);
+                 startActivity(intent);
+                 return true;
+             }
         });
 
-        Preference ambientDisplay = findPreference(AMBIENT_DISPLAY);
-        ambientDisplay.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getContext(), AmbientGesturePreferenceActivity.class);
-            startActivity(intent);
-            return true;
+        PreferenceScreen mKcalPref = (PreferenceScreen) findPreference("kcal");
+        mKcalPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+             @Override
+             public boolean onPreferenceClick(Preference preference) {
+                 Intent intent = new Intent(getActivity().getApplicationContext(), DisplayCalibration.class);
+                 startActivity(intent);
+                 return true;
+             }
         });
+
+        mS2S = (ListPreference) findPreference(S2S_KEY);
+        mS2S.setValue(Utils.getFileValue(FILE_S2S_TYPE, "0"));
+        mS2S.setOnPreferenceChangeListener(this);
+
+        mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
+        if (mVibratorStrength != null) {
+            mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
+        }
+
+        mGloveMode = (TwoStatePreference) findPreference(KEY_GLOVE_MODE);
+        mGloveMode.setChecked(PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(DeviceSettings.KEY_GLOVE_MODE, false));
+        mGloveMode.setOnPreferenceChangeListener(this);
+
+        mYellowTorchBrightness = (YellowTorchBrightnessPreference) findPreference(KEY_YELLOW_TORCH_BRIGHTNESS);
+        if (mYellowTorchBrightness != null) {
+            mYellowTorchBrightness.setEnabled(YellowTorchBrightnessPreference.isSupported());
+        }
+
+        mWhiteTorchBrightness = (WhiteTorchBrightnessPreference) findPreference(KEY_WHITE_TORCH_BRIGHTNESS);
+        if (mWhiteTorchBrightness != null) {
+            mWhiteTorchBrightness.setEnabled(WhiteTorchBrightnessPreference.isSupported());
+        }
+    }
+
+    public static void restore(Context context) {
+        boolean gloveModeData = PreferenceManager.getDefaultSharedPreferences(context).getBoolean(DeviceSettings.KEY_GLOVE_MODE, false);
+        Utils.writeValue(GLOVE_MODE_FILE, gloveModeData ? "1" : "0");
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object value) {
-        final String key = preference.getKey();
-        switch (key) {
-            case KEY_WHITE_TORCH_BRIGHTNESS:
-                FileUtils.setValue(TORCH_1_BRIGHTNESS_PATH, (int) value);
-                break;
-
-            case KEY_YELLOW_TORCH_BRIGHTNESS:
-                FileUtils.setValue(TORCH_2_BRIGHTNESS_PATH, (int) value);
-                break;
-
-            case PREF_VIBRATION_STRENGTH:
-                double vibrationValue = (int) value / 100.0 * (MAX_VIBRATION - MIN_VIBRATION) + MIN_VIBRATION;
-                FileUtils.setValue(VIBRATION_STRENGTH_PATH, vibrationValue);
-                break;
-
-            case PREF_HEADPHONE_GAIN:
-                FileUtils.setValue(HEADPHONE_GAIN_PATH, value + " " + value);
-                break;
-
-            case PREF_MICROPHONE_GAIN:
-                FileUtils.setValue(MICROPHONE_GAIN_PATH, (int) value);
-                break;
-
-            case PREF_SPEAKER_GAIN:
-                FileUtils.setValue(SPEAKER_GAIN_PATH, (int) value);
-                break;
-
-            case PREF_KEY_FPS_INFO:
-                boolean enabled = (Boolean) value;
-                Intent fpsinfo = new Intent(this.getContext(), FPSInfoService.class);
-                if (enabled) {
-                    this.getContext().startService(fpsinfo);
-                } else {
-                    this.getContext().stopService(fpsinfo);
-                }
-                break;
-
-            case PREF_GLOVE_MODE:
-                FileUtils.setValue(GLOVE_MODE_PATH, (boolean) value);
-                break;
-
-            default:
-                break;
-        }
-        return true;
+    public boolean onPreferenceTreeClick(Preference preference) {
+        return super.onPreferenceTreeClick(preference);
     }
 
-    private boolean isAppNotInstalled(String uri) {
-        PackageManager packageManager = getContext().getPackageManager();
-        try {
-            packageManager.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
-            return false;
-        } catch (PackageManager.NameNotFoundException e) {
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mGloveMode) {
+            Boolean enabled = (Boolean) newValue;
+            SharedPreferences.Editor prefChange = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            prefChange.putBoolean(KEY_GLOVE_MODE, enabled).commit();
+            Utils.writeValue(GLOVE_MODE_FILE, enabled ? "1" : "0");
+            return true;
+        } else if (preference == mS2S) {
+            String strvalue = (String) newValue;
+            Utils.writeValue("/sys/sweep2sleep/sweep2sleep", strvalue);
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            editor.putString(S2S_KEY, strvalue);
+            editor.apply();
             return true;
         }
+        return false;
     }
 }
