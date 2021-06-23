@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Head title -->
+    <string name="lenovoparts_title">Lenovo parts</string>
+    <string name="lenovoparts_settings_summary">Cihaza özel gelişmiş ayarlar</string>
+
+    <!-- Touchscreen -->
+    <string name="touchscreen_title">Dokunma</string>
+    <string name="glove_mode_title">Yüksek dokunmatik hassasiyeti</string>
+    <string name="glove_mode_summary">Dokunmatik ekran hassasiyetini arttırarak eldiven ile kullanıma olanak verir</string>
+
+    <!-- Vibrator -->
+    <string name="vibration_category">Titreşim</string>
+    <string name="vibration_strength_title">Titreşim yoğunluğu</string>
+
+    <!-- Torch -->
+    <string name="torch_category">Fener</string>
+    <string name="yellow_torch_brightness_title">Sarı fener parlaklığı</string>
+    <string name="white_torch_brightness_title">Beyaz fener parlaklığı</string>
+
+    <!-- Sound control -->
+    <string name="audio_category">Ses</string>
+    <string name="headphone_gain">Kulaklık ses seviyesi</string>
+    <string name="microphone_gain">Mikrofon ses seviyesi</string>
+    <string name="speaker_gain">Hoparlör ses seviyesi</string>
+
+    <!-- Fp gestures -->
+    <string name="fp_title">Hareketler</string>
+    <string name="fp_settings_title">Parmak izi hareketleri</string>
+    <string name="fp_settings_summary">Cihazınızın parmak izi hareketlerini kullanın</string>
+
+    <!-- kcal -->
+    <string name="display_category">Ekran</string>
+    <string name="device_kcal_title">Ekran renk kalibrasyonu</string>
+    <string name="device_kcal_summary">Kcal kullanarak ekranı kalibre edin</string>
+    <string name="advanced_settings_kcal">Ekran renk kalibrasyonu</string>
+    <string name="cat_colormanagement">Renk ayarları</string>
+    <string name="cat_calibration">Ekran renk kalibrasyonu</string>
+    <string name="kcal_enabled">Açık</string>
+    <string name="kcal_disabled">Kapalı</string>
+    <string name="set_on_boot">Açılışta uygula</string>
+    <string name="color_red">Kırmızı</string>
+    <string name="color_green">Yeşil</string>
+    <string name="color_blue">Mavi</string>
+    <string name="color_minimum">Minimum</string>
+    <string name="saturation">Doygunluk</string>
+    <string name="value">Değer</string>
+    <string name="contrast">Kontrast</string>
+    <string name="hue">Ton</string>
+    <string name="grayscale">Gri tonlamalı ekran</string>
+    <string name="presets_dialog_title">Ön ayarı seçin</string>
+
+    <!-- Presets -->
+    <string name="preset_default">Varsayılan</string>
+    <string name="preset_version_1">Sürüm 1</string>
+    <string name="preset_version_2">Sürüm 2</string>
+    <string name="preset_version_3">Sürüm 3</string>
+    <string name="preset_deep_black_white">Koyu siyah</string>
+    <string name="preset_deep_natural">Koyu doğal</string>
+    <string name="preset_cool_amoled">Serin amoled</string>
+    <string name="preset_extreme_amoled">Aşırı amoled</string>
+    <string name="preset_warm_amoled">Sıcak amoled</string>
+    <string name="preset_hybrid_mamba">Hibrid mamba</string>
+    <string name="preset_gerard_extrem_cool">Gerard aşırı serin</string>
+    <string name="preset_purian">Püriten</string>
+    <string name="preset_deep_black_colorful">Derin siyah renkli</string>
+    <string name="preset_vomer_deep_rich">Vomer derin zengin</string>
+    <string name="preset_wrinklefree_cool">Kırışıksız serin</string>
+    <string name="preset_harley_tech">Harley teknolojisi</string>
+    <string name="preset_perfection">Mükemmel</string>
+    <string name="preset_banged_up">Mahvolmuş</string>
+    <string name="preset_sim_cooler">İnce soğuk</string>
+    <string name="preset_burn_in">Kötü yanık</string>
+
+    <!-- Menu -->
+    <string name="kcal_presets">@string/presets_dialog_title</string>
+    <string name="kcal_reset">Sıfırla</string>
+
+    <!-- Label for feature switch  -->
+    <string name="switch_bar_on">Açık</string>
+    <string name="switch_bar_off">Kapalı</string>
+
+    <!-- Ambient gesture haptic feedback -->
+    <string name="ambient_gesture_haptic_feedback_title">Geri bildirim</string>
+    <string name="ambient_gesture_haptic_feedback">Dokumsal geribildirim</string>
+    <string name="ambient_gesture_haptic_feedback_summary">Bir ortam hareketi algılandığında titret</string>
+
+    <!-- Ambient display -->
+    <string name="ambient_display_enable_title">Ortam ekranı</string>
+    <string name="ambient_display_gestures_title">Ortam ekranı hareketleri</string>
+    <string name="ambient_display_gestures_summary">Cihazı uyandırmak için ek hareketleri kullanın</string>
+
+    <!-- Hand wave gesture -->
+    <string name="tilt_sensor_title">Eğrilik sensörü</string>
+    <string name="hand_wave_gesture_title">El sallama</string>
+    <string name="hand_wave_gesture_summary">El sallayınca bildirimleri göster</string>
+
+    <!-- Pick-up gesture -->
+    <string name="pickup_sensor_title">Ele alma sensörü</string>
+    <string name="pick_up_gesture_title">Telefonu kaldır</string>
+    <string name="pick_up_gesture_summary">Telefonu kaldırınca bildirimleri göster</string>
+
+    <!-- Pocket gesture -->
+    <string name="pocket_gesture_title">Cep modu</string>
+    <string name="pocket_gesture_summary">Cepten çıkarınca bildirimleri göster</string>
+
+    <!-- Proximity wake -->
+    <string name="proximity_sensor_title">Yakınlık sensörü</string>
+    <string name="proximity_wake_enable_title">Harekette uyandır</string>
+    <string name="proximity_wake_enable_summary">El sallayınca cihazı uyandır</string>
+
+    <!-- FPS Info -->
+    <string name="fps_info_title">FPS bilgisi</string>
+    <string name="fps_info_summary">Fps bilgilerini saniyedeki geçerli kare sayısı ile göster</string>
+</resources>
