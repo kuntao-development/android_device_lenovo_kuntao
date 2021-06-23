@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Head title -->
+    <string name="lenovoparts_title">Lenovo parts</string>
+    <string name="lenovoparts_settings_summary">Device specific customizations</string>
+
+    <!-- Touchscreen -->
+    <string name="touchscreen_title">Touchscreen</string>
+    <string name="glove_mode_title">High touch sensitivity</string>
+    <string name="glove_mode_summary">Increase touchscreen sensitivity so it can be used while wearing gloves</string>
+
+    <!-- Vibrator -->
+    <string name="vibration_category">Vibration</string>
+    <string name="vibration_strength_title">Vibration strength</string>
+
+    <!-- Torch -->
+    <string name="torch_category">Torch</string>
+    <string name="yellow_torch_brightness_title">Yellow torch brightness</string>
+    <string name="white_torch_brightness_title">White torch brightness</string>
+
+    <!-- Sound control -->
+    <string name="audio_category">Audio</string>
+    <string name="headphone_gain">Headphone gain</string>
+    <string name="microphone_gain">Microphone gain</string>
+    <string name="speaker_gain">Speaker gain</string>
+
+    <!-- Fp gestures -->
+    <string name="fp_title">Gestures</string>
+    <string name="fp_settings_title">Fingerprint gestures</string>
+    <string name="fp_settings_summary">Use your device fingerprint gestures</string>
+
+    <!-- kcal -->
+    <string name="display_category">Display</string>
+    <string name="device_kcal_title">Display calibration</string>
+    <string name="device_kcal_summary">Display color calibration using kcal</string>
+    <string name="advanced_settings_kcal">Display color calibration</string>
+    <string name="cat_colormanagement">Color settings</string>
+    <string name="cat_calibration">Display calibration</string>
+    <string name="kcal_enabled">On</string>
+    <string name="kcal_disabled">Off</string>
+    <string name="set_on_boot">Set on boot</string>
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_minimum">Minimum</string>
+    <string name="saturation">Saturation</string>
+    <string name="value">Value</string>
+    <string name="contrast">Contrast</string>
+    <string name="hue">Hue</string>
+    <string name="grayscale">Grayscale display</string>
+    <string name="presets_dialog_title">Select preset</string>
+
+    <!-- Presets -->
+    <string name="preset_default">Default</string>
+    <string name="preset_version_1">Version 1</string>
+    <string name="preset_version_2">Version 2</string>
+    <string name="preset_version_3">Version 3</string>
+    <string name="preset_triluminous">Triluminous</string>
+    <string name="preset_deep_black_white">Deep black and white</string>
+    <string name="preset_deep_natural">Deep natural</string>
+    <string name="preset_cool_amoled">Cool amoled</string>
+    <string name="preset_extreme_amoled">Extreme amoled</string>
+    <string name="preset_warm_amoled">Warm amoled</string>
+    <string name="preset_hybrid_mamba">Hybrid mamba</string>
+    <string name="preset_sir_banger">Sir banger</string>
+    <string name="preset_gerard_extrem_cool">Gerard extreme cool</string>
+    <string name="preset_yoyoz808">Yoyoz808</string>
+    <string name="preset_purian">Purian</string>
+    <string name="preset_deep_black_colorful">Deep black colorful</string>
+    <string name="preset_vomer_deep_rich">Vomer deep rich</string>
+    <string name="preset_franco">Franco</string>
+    <string name="preset_wrinklefree_cool">WrinkleFree cool</string>
+    <string name="preset_harley_tech">Harley tech</string>
+    <string name="preset_perfection">Perfection</string>
+    <string name="preset_banged_up">Banged up</string>
+    <string name="preset_sim_cooler">SimCooler</string>
+    <string name="preset_obsanity">Obsanity</string>
+    <string name="preset_obsanity_ips">Obsanity ips</string>
+    <string name="preset_burn_in">Burn in shit</string>
+
+    <!-- menu -->
+    <string name="kcal_presets">@string/presets_dialog_title</string>
+    <string name="kcal_reset">Reset</string>
+
+    <!-- Label for feature switch  -->
+    <string name="switch_bar_on">On</string>
+    <string name="switch_bar_off">Off</string>
+
+    <!-- Ambient gesture haptic feedback -->
+    <string name="ambient_gesture_haptic_feedback_title">Feedback</string>
+    <string name="ambient_gesture_haptic_feedback">Haptic feedback</string>
+    <string name="ambient_gesture_haptic_feedback_summary">Vibrate when a ambient gesture is detected</string>
+
+    <!-- Ambient Display -->
+    <string name="ambient_display_enable_title">Ambient display</string>
+    <string name="ambient_display_gestures_title">Ambient display gestures</string>
+    <string name="ambient_display_gestures_summary">Additional gestures to wake the screen</string>
+
+    <!-- Hand wave gesture -->
+    <string name="tilt_sensor_title">Tilt sensor</string>
+    <string name="hand_wave_gesture_title">Hand wave</string>
+    <string name="hand_wave_gesture_summary">Pulse notifications on hand wave</string>
+
+    <!-- Pick-up gesture -->
+    <string name="pickup_sensor_title">Pickup sensor</string>
+    <string name="pick_up_gesture_title">Pick-up</string>
+    <string name="pick_up_gesture_summary">Pulse notifications on pick-up</string>
+
+    <!-- Pocket gesture -->
+    <string name="pocket_gesture_title">Pocket</string>
+    <string name="pocket_gesture_summary">Pulse notifications on removal from pocket</string>
+
+    <!-- Proximity wake -->
+    <string name="proximity_sensor_title">Proximity sensor</string>
+    <string name="proximity_wake_enable_title">Proximity wake</string>
+    <string name="proximity_wake_enable_summary">Wake device on hand wave</string>
+
+    <!-- FPS Info -->
+    <string name="fps_info_title">FPS info</string>
+    <string name="fps_info_summary">Show overlay with current frames per second</string>
+</resources>
