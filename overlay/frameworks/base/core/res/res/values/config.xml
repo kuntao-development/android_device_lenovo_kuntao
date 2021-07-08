@@ -322,20 +322,6 @@
          config to 7. -->
     <integer name="config_deviceHardwareKeys">65</integer>
 
-    <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Assistant (search)
-            16 - App switch
-            32 - Camera
-            64 - Volume rocker
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">65</integer>
-
     <!-- Paths to the libraries that contain device specific key handlers -->
     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
         <item>/system/priv-app/DeviceSettings/DeviceSettings.apk</item>
@@ -409,27 +395,8 @@
     <!-- If supported, are dreams enabled? (by default) -->
     <bool name="config_dreamsEnabledByDefault">false</bool>
 
-    <!-- Does the device support battery LED? -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
-
-    <!-- Does the battery LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
-
-    <!-- Pocket Lock -->
-    <bool name="config_pocketModeSupported">false</bool>
-
     <!-- Whether the device supports Smart Pixels -->
-    <bool name="config_enableSmartPixels">true</bool>
-
-    <!-- Should we filter any display modes which are unampped? -->
-    <bool name="config_filterDisplayModes">true</bool>
-
-    <!-- Whether device can force navbar disabling -->
-    <bool name="config_canForceDisableNavigationBar">true</bool>
-
-    <!-- Whether device supports gestures on fingerprint sensor -->
-    <bool name="config_supportsGesturesOnFingerprintSensor">true</bool>
+    <bool name="config_supportSmartPixels">true</bool>
 
     <!-- Max visible notification icons -->
     <integer name="config_maxVisibleNotificationIcons">6</integer>
