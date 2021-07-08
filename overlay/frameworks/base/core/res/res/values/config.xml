@@ -431,6 +431,9 @@
     <!-- Whether device supports gestures on fingerprint sensor -->
     <bool name="config_supportsGesturesOnFingerprintSensor">true</bool>
 
+    <!-- Set the default dialer package name. -->
+    <string name="config_defaultDialer" translatable="false">com.android.dialer</string>
+
     <!-- If true, the display will be shifted around in ambient mode. -->
     <bool name="config_enableBurnInProtection">false</bool>
 
