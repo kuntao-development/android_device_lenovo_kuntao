@@ -431,6 +431,10 @@
     <!-- Whether device supports gestures on fingerprint sensor -->
     <bool name="config_supportsGesturesOnFingerprintSensor">true</bool>
 
+    <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">6</integer>
+    <integer name="config_maxVisibleNotificationIconsOnLock">7</integer>
+
     <!-- Set the default dialer package name. -->
     <string name="config_defaultDialer" translatable="false">com.android.dialer</string>
 
