@@ -5,5 +5,7 @@ allow platform_app sysfs_fps:file rw_file_perms;
 binder_call(platform_app, hal_alarm_qti_default);
 allow platform_app hal_alarm_qti_hwservice:hwservice_manager find;
 
-# Screenshot
-get_prop(platform_app, exported_audio_prop);
+# System Info
+r_dir_file(platform_app, sysfs_usb_supply);
+r_dir_file(platform_app, sysfs_battery_supply);
+r_dir_file(platform_app, sysfs_kgsl);
