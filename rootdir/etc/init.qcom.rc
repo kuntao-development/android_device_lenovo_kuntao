@@ -266,7 +266,6 @@ on charger
     setprop sys.usb.configfs 0
     start qcom-post-boot
     start vendor.power_off_alarm
-    start smart_charger
     chown system system /sys/class/leds/rgb/brightness
     write /sys/class/leds/rgb/brightness 255
 
