@@ -52,10 +52,6 @@ on fs
     mkdir /mnt/vendor/persist/time 0770 system system
     restorecon_recursive /mnt/vendor/persist
 
-on init
-    # Poweroff alarm
-    write /sys/module/qpnp_rtc/parameters/poweron_alarm 1
-
 on post-fs
     start vendor.qseecomd
     wait_for_prop vendor.sys.listeners.registered true
