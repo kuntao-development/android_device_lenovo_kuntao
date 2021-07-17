@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2017-2021 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -55,6 +55,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        system/etc/nfcee_access.xml)
+            sed -i -e 's|xliff=\"urn:oasis:names:tc:xliff:document:1.2|android=\"http:\/\/schemas.android.com\/apk\/res\/android|' "${2}"
+            ;;
         system_ext/lib64/libdpmframework.so)
            "${PATCHELF}" --add-needed "libdpmframework_shim.so" "${2}"
             ;;
