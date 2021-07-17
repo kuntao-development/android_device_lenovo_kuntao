@@ -46,8 +46,8 @@ on post-fs
     chmod 0660 /sys/devices/platform/elan_alsps/set_delay_ms
 
     # G-sensor autocalibration
-    chown system system /persist/GSSET.txt
-    chmod 0660 /persist/GSSET.txt
+    chown system system /mnt/vendor/persist/GSSET.txt
+    chmod 0660 /mnt/vendor/persist/GSSET.txt
 
 on post-fs-data
     # Fingerprint
