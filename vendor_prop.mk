@@ -65,10 +65,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     persist.hwc.enable_vds=1 \
-    persist.debug.wfd.enable=1 \
-    persist.sys.wfd.virtual=0 \
     vendor.video.disable.ubwc=1 \
-    vendor.gralloc.disable_wb_ubwc=1 \
     vendor.gralloc.enable_fb_ubwc=1
 
 # Dalvik
@@ -84,8 +81,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610 \
     ro.vendor.display.cabl=0 \
-    vendor.display.support_writeback=0 \
-    vendor.display.disable_rotator_downscale=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.enable_default_color_mode=1
 
