@@ -92,6 +92,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dex2oat64.enabled=true
 
+# Disable rescue party
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.device_config.configuration.disable_rescue_party=true \
+    persist.sys.disable_rescue=true
+
 # Factory reset protection
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.frp.pst=/dev/block/platform/soc/7824900.sdhci/by-name/config
