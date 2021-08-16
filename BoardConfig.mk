@@ -168,6 +168,9 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 # RIL
 DISABLE_RILD_OEM_HOOK := true
 
+# Qti telephony
+TARGET_USE_NEW_QTİ_JAR := true
+
 # Security patch level
 VENDOR_SECURITY_PATCH := 2017-11-01
 
