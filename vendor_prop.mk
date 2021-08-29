@@ -88,10 +88,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
-# Dex2oat64
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat64.enabled=true
-
 # Disable rescue party
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.device_config.configuration.disable_rescue_party=true \
