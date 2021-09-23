@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2019 The LineageOS Project
+     Copyright (C) 2021 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,8 +15,7 @@
      limitations under the License.
 -->
 <resources>
-    <string name="fp_gestures_title">Hareketler</string>
     <string name="fingerprint_kuntao_title">Hareketler</string>
     <string name="fingerprint_gestures_title">Parmak izi hareketleri</string>
-    <string name="fingerprint_gestures_summary">Geri gitmek için dokunun, son uygulamaları görüntülemek için basılı tutun | Not: Çalışması için navbarı kapatmanız gerekir</string>
+    <string name="fingerprint_gestures_summary">Geri gitmek için dokunun, son uygulamaları görüntülemek için basılı tutun</string>
 </resources>

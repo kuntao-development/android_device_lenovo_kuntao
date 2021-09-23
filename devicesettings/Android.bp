@@ -5,12 +5,13 @@
 //
 
 android_app {
-    name: "DeviceSettings",
+    name: "LenovoGestures",
 
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
     certificate: "platform",
     platform_apis: true,
+    system_ext_specific: true,
     privileged: true,
 
     static_libs: [

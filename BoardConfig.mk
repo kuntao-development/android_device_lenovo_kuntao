@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017-2020 The LineageOS Project
+# Copyright (C) 2017-2021 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -142,11 +142,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# GPS
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
-TARGET_NO_RPC := true
-USE_DEVICE_SPECIFIC_GPS := true
-
 # HIDL
 DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
@@ -170,9 +165,6 @@ DISABLE_RILD_OEM_HOOK := true
 
 # Qti telephony
 TARGET_USE_NEW_QTİ_JAR := true
-
-# Security patch level
-VENDOR_SECURITY_PATCH := 2017-11-01
 
 # SELinux
 include device/qcom/sepolicy-legacy-um/SEPolicy.mk

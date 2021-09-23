@@ -5,5 +5,4 @@
     <!-- Both versions of this string are needed due to a miscommunication. b/29978934 -->
     <feature name="com.google.android.apps.photos.NEXUS_PRELOAD" />
     <feature name="com.google.android.apps.photos.nexus_preload" />
-
 </config>
