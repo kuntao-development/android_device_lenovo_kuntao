@@ -1,5 +1,2 @@
 # MemTrack
 dontaudit untrusted_app_29 hal_memtrack_hwservice:hwservice_manager { find };
-
-# Telegram
-get_prop(untrusted_app_29, serialno_prop);
