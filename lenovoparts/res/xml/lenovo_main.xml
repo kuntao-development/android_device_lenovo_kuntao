@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
-	android:key="header"
-	android:layout="@layout/header_animation" />
+        android:key="header"
+        android:layout="@layout/header_animation"
+        android:clickable="false"
+        android:selectable="false" />
 
     <PreferenceCategory
         android:title="@string/touchscreen_title">

@@ -15,7 +15,9 @@
 
     <Preference
         android:key="doze_animation"
-        android:layout="@layout/doze_animation" />	
+        android:layout="@layout/doze_animation"
+        android:clickable="false"
+        android:selectable="false" />
 
     <PreferenceCategory
         android:title="@string/pickup_sensor_title">
