@@ -1,2 +1,0 @@
-# Magisk
-dontaudit untrusted_app_27 magisk_client:file { read };
