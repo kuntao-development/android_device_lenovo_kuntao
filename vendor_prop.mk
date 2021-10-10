@@ -90,8 +90,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
 
 # Disable rescue party
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.device_config.configuration.disable_rescue_party=true \
+PRODUCT_GENERIC_PROPERTIES += \
     persist.sys.disable_rescue=true
 
 # Factory reset protection
@@ -176,10 +175,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
     ro.surface_flinger.max_virtual_display_dimension=4096
-
-# Use gestures by default
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
 
 # Time Services
 PRODUCT_PROPERTY_OVERRIDES += \
