@@ -53,7 +53,7 @@
 
         <activity android:name=".KeyHandler" />
         <receiver android:name=".BootCompletedReceiver">
-            <intent-filter android:priority="100">
+            <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
