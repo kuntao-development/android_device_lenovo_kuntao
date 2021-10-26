@@ -233,6 +233,7 @@ service qcom-post-boot /vendor/bin/init.qcom.post_boot.sh
 
 on property:sys.boot_completed=1
     start qcom-post-boot
+    restart audioserver
     restart vendor.audio-hal
     restart vendor.media.omx
     setprop persist.vendor.fp.gesture 1
