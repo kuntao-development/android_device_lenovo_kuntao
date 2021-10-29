@@ -14,7 +14,7 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aicp_kuntao.mk
+    $(LOCAL_DIR)/lineage_kuntao.mk
 
 COMMON_LUNCH_CHOICES := \
-    aicp_kuntao-userdebug \
+    lineage_kuntao-userdebug \
