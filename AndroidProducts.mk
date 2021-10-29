@@ -14,9 +14,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/xtended_kuntao.mk
+    $(LOCAL_DIR)/lineage_kuntao.mk
 
 COMMON_LUNCH_CHOICES := \
-    xtended_kuntao-user \
-    xtended_kuntao-userdebug \
-    xtended_kuntao-eng
+    lineage_kuntao-user \
+    lineage_kuntao-userdebug \
+    lineage_kuntao-eng
