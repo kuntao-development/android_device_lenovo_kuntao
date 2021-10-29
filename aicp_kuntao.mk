@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2021 The LineageOS Project
+# Copyright (C) 2020 AICP
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,36 +14,34 @@
 # limitations under the License.
 #
 
-# Boot animation
-TARGET_BOOT_ANIMATION_RES := 1080
-
-# Inherit 64-bit configs
+# Inherit framework first
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
-
-# Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit some common Xtended stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit from ginkgo device
+$(call inherit-product, device/xiaomi/ginkgo/device.mk)
 
-# Inherit device configuration
-$(call inherit-product, device/lenovo/kuntao/device.mk)
+# Inherit some common AICP stuff
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 2340
+TARGET_BOOTANIMATION_HALF_RES := true
+TARGET_INCLUDE_STOCK_ARCORE := false
+TARGET_INCLUDE_PIXEL_CHARGER := true
+$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
 
-# Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_kuntao
-PRODUCT_DEVICE := kuntao
-PRODUCT_BRAND := Lenovo
-PRODUCT_MODEL := Lenovo P2a42
-PRODUCT_MANUFACTURER := LENOVO
+# Device identifier
+PRODUCT_NAME := aicp_ginkgo
+PRODUCT_DEVICE := ginkgo
+PRODUCT_BRAND := Xiaomi
+PRODUCT_MODEL := Redmi Note 8
+PRODUCT_MANUFACTURER := Xiaomi
+PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
-# Faceunlock
-TARGET_FACE_UNLOCK_SUPPORTED := true
+PRODUCT_OVERRIDE_INFO := true
+PRODUCT_OVERRIDE_FINGERPRINT := Xiaomi/dipper/dipper:8.1.0/OPM1.171019.011/V9.5.5.0.OEAMIFA:user/release-keys
 
-PRODUCT_GMS_CLIENTID_BASE := android-lenovo
-
+#AICP Device Maintainer
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="kuntao_row-user 7.0 NRD90N P2a42_S251_171107_ROW release-keys" \
-    TARGET_DEVICE="P2a42"
-
-BUILD_FINGERPRINT := Lenovo/kuntao_row/P2a42:7.0/NRD90N/P2a42_S251_171107_ROW:user/release-keys
+	DEVICE_MAINTAINERS="Justine Ryan De Guia (Tokatsu)"
