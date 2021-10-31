@@ -25,13 +25,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
 # Inherit some common Xtended stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/mokee/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lenovo/kuntao/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_kuntao
+PRODUCT_NAME := mokee_kuntao
 PRODUCT_DEVICE := kuntao
 PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Lenovo P2a42
@@ -39,9 +39,8 @@ PRODUCT_MANUFACTURER := LENOVO
 
 # Sakura Flags
 TARGET_BOOT_ANIMATION_RES := 1080
-SAKURA_MAINTAINER := -Shades-1.0-SingleShot
+MOKEE_MAINTAINER := -Shades-1.0-SingleShot
 TARGET_GAPPS_ARCH := arm64
-SAKURA_BUILD_TYPE=basicgapps
 
 # Faceunlock
 TARGET_FACE_UNLOCK_SUPPORTED := true
