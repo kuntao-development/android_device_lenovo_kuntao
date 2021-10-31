@@ -14,7 +14,7 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_kuntao.mk
+    $(LOCAL_DIR)/mokee_kuntao.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_kuntao-userdebug \
+    mokee_kuntao-userdebug \
