@@ -14,7 +14,7 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/mokee_kuntao.mk
+    $(LOCAL_DIR)/spark_kuntao.mk
 
 COMMON_LUNCH_CHOICES := \
-    mokee_kuntao-userdebug \
+    spark_kuntao-userdebug \
