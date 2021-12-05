@@ -22,6 +22,12 @@
 /sys/devices/soc/78b8000\.i2c/i2c-4/4-0064/leds(/.*)?                      u:object_r:sysfs_leds:s0
 /vendor/bin/hw/android\.hardware\.light@2\.0-service\.kuntao               u:object_r:hal_light_default_exec:s0
 
+# I/O
+# This node is already labelled by QCOM but Lineage overrides it with sysfs_io_sched_tunable label
+# Since qti_init_shell needs to write to it, LOS's private label isn't accessible by our vendor
+# Relabel it to QCOM's sysfs_mmc_host label to get rid of denials
+/sys/devices(/platform)?/soc/[a-f0-9]+.sdhci/mmc_host/mmc[0-9]/mmc[0-9]:[a-f0-9]+/block/mmcblk[0-9]/queue/read_ahead_kb u:object_r:sysfs_mmc_host:s0
+
 # NFC
 /dev/bcm2079x-i2c                                                          u:object_r:nfc_device:s0
 
