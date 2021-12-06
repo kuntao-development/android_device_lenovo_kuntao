@@ -256,13 +256,6 @@ service vendor.msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqb
     user root
     group root
 
-# Set vendor-ril lib path based on Meta version
-on property:vendor.rild.libpath=*
-    setprop rild.libpath ${vendor.rild.libpath}
-
-on property:ro.vendor.radio.noril=*
-    setprop ro.radio.noril ${ro.vendor.radio.noril}
-
 on charger
     setprop sys.usb.configfs 0
     start qcom-post-boot
