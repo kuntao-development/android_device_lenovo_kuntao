@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-#ifndef ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
-#define ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H
+#pragma once
 
 #include <android/hardware/light/2.0/ILight.h>
 #include <hidl/Status.h>
@@ -63,5 +62,3 @@ struct Light : public ILight {
 }  // namespace light
 }  // namespace hardware
 }  // namespace android
-
-#endif  // ANDROID_HARDWARE_LIGHT_V2_0_LIGHT_H

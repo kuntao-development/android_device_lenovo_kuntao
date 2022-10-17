@@ -1,13 +1,17 @@
 //
-// Copyright (C) 2017-2021 The LineageOS Project
+// Copyright (C) 2017-2022 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 
 cc_library_shared {
     name: "libvt_shim",
-    srcs: ["GraphicBuffer.cpp"],
-    shared_libs: ["libui"],
+    srcs: ["GraphicBuffer.cpp", "lib-imsvt.cpp"],
+    shared_libs: [
+        "libui",
+        "libgui",
+        "libutils",
+    ],
     compile_multilib: "64",
     system_ext_specific: true,
 }

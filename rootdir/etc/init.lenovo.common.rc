@@ -6,21 +6,17 @@ service vfmservice /vendor/bin/vfmService
     class main
     user system
     group system input uhid
+    writepid /dev/cpuset/system-background/tasks
 
 on property:vendor.sys.listeners.registered=true
     start vfmservice
 
 on property:vold.decrypt=trigger_restart_framework
-    start vfmservice
+    restart smart_charger
+    restart vfmservice
+    restart vendor.fps_hal
 
 on boot
-    # CABC feature
-    chown system system /sys/class/graphics/fb0/cabc
-    # HBM feature
-    chown system system /sys/class/graphics/fb0/hbm
-    # ACL feature
-    chown system system /sys/class/graphics/fb0/acl
-
     # Double tap
     chown system system /sys/board_properties/tpd_suspend_status
     chmod 0664 /sys/board_properties/tpd_suspend_status

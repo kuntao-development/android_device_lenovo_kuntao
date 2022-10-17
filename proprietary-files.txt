@@ -11,6 +11,16 @@ vendor/lib64/libfastcvadsp_stub.so|f101b66fa4a450b5af2e6aa9f7aaa28f9a876005
 vendor/lib64/libfastcvopt.so|9a08a782acfb280b81e0c492155aea5709577d75
 vendor/lib64/libmdsprpc.so|744c11799b8926e3b10c0f1da763b6ac1297b318
 
+# ADSP modules - LA.UM.8.6.r1-04700-89xx.0
+vendor/lib/rfsa/adsp/libapps_mem_heap.so|5c82ad9cfe3f30105d899e2a4e90cc7566f81252
+vendor/lib/rfsa/adsp/libdspCV_skel.so|628985174b0088bed21c866d7984d23855e5e150
+vendor/lib/rfsa/adsp/libfastcvadsp_skel.so|1ff4a48009e88435d93fd2b9b0c5ea59cedbb4f7
+vendor/lib/rfsa/adsp/libfastcvadsp.so|9818625bfa018f517e32a8f4a1e7fb4b255e5049
+vendor/lib/rfsa/adsp/libFastRPC_AUE_Forward_skel.so|f4d8675a46c5e52add8f8e90e35b29cd33ac582b
+vendor/lib/rfsa/adsp/libFastRPC_UTF_Forward_Qtc2_skel.so|b9f68e320d24e9c51871a2056e1f47239bd1cb40
+vendor/lib/rfsa/adsp/libscveBlobDescriptor_skel.so|3e9c52069ff07e50191d3b3afb33b30409241ab6
+vendor/lib/rfsa/adsp/libscveT2T_skel.so|91b9200dbb982abf0d6b440668252d892a616f66
+
 # ANT+ (vendor) - from LA.UM.8.6.r1-04700-89xx.0
 vendor/lib64/com.qualcomm.qti.ant@1.0.so|1a7bee1627309c8eee55dab22b9f25c2302219ae
 
@@ -54,11 +64,7 @@ vendor/etc/init/android.hardware.bluetooth@1.0-service-qti.rc|a979981c55f3dcaf6c
 vendor/lib64/hw/android.hardware.bluetooth@1.0-impl-qti.so|c7a6b94f8e4175265ed08a1ed0c46b99709bcc1a
 vendor/lib64/libbtnv.so|143ba8a42154a26469b87243ae3e1cd5e9565b13
 vendor/lib64/libbt-hidlclient.so|4682c8711fe78bb73448b34c30181948989400bf
-
-# Bluetooth (Audio) - from LA.UM.8.6.r1-04700-89xx.0
-vendor/lib64/hw/audio.bluetooth_qti.default.so|a17474dec03b704cc9741c85f2f6aef62c5ad71e
 vendor/lib64/hw/vendor.qti.hardware.bluetooth_sar@1.0-impl.so|4e188cd7cc009ced6af7901f357005623dd0875a
-vendor/lib64/libbluetooth_audio_session_qti.so|ac99d03635322385bedf8db2a6e318b996349203
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so|237a97fc3d3332b1466583178b548dd1525479ef
 
 # Bluetooth (Shared Dependencies) - from LA.UM.8.6.r1-04700-89xx.0
@@ -280,7 +286,7 @@ bin/smart_charger:vendor/bin/smart_charger
 etc/cne/Nexus/ATT/ATT_profiles.xml|a0039cb3a4c5a4ca1adf897904b61c91e32d06f7
 etc/cne/Nexus/ROW/ROW_profiles.xml|e3907ff71cbbe0f1073ec1bf0223d26c8282aa35
 etc/cne/Nexus/VZW/VZW_profiles.xml|0d35b3266ea656d8868ae8f5d7e938f4859e9b0a
--vendor/app/CneApp/CneApp.apk|67dd058d8e665a8606c1ff6c3980e844a9bf323e
+vendor/app/CneApp/CneApp.apk|67dd058d8e665a8606c1ff6c3980e844a9bf323e
 vendor/bin/cnd|f498307415b2c5b2b4a239964e29962591bf3cc6
 vendor/etc/cne/wqeclient/ATT/ATT_profile1.xml|578f3f8f56059bfdbef926bcc68d01c15e06951f
 vendor/etc/cne/wqeclient/ATT/ATT_profile2.xml|1fb42c672a12b6660bdce3ea94e0c43719dd9de8
@@ -346,7 +352,7 @@ product/lib64/libdpmctmgr.so:system_ext/lib64/libdpmctmgr.so|2e12d384caf2969d413
 product/lib64/libdpmfdmgr.so:system_ext/lib64/libdpmfdmgr.so|97b2f505285ed372a9f3d8a13682ea4022dbd70a
 product/lib64/libdpmframework.so:system_ext/lib64/libdpmframework.so|fda89754b743d922367b26ca70a77b4d6fbdd7a1
 product/lib64/libdpmtcm.so:system_ext/lib64/libdpmtcm.so|9f99848e2574d2302692446d5dd87cd90f972b0c
--product/priv-app/dpmserviceapp/dpmserviceapp.apk:system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|68b6f0227ae0b065dff635f30bfdc3c23f90c395
+product/priv-app/dpmserviceapp/dpmserviceapp.apk:system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|68b6f0227ae0b065dff635f30bfdc3c23f90c395
 vendor/bin/dpmQmiMgr|577eee55aec626ff4e7d5a789ea1c98fc602e5c4
 vendor/etc/init/dpmQmiMgr.rc|67569302d3a8828a9118c835e5b69c51b0c8ac68
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|a70cfc1be3e06cde6318d6969e114429fe1950bb
@@ -374,6 +380,7 @@ vendor/lib64/libspl.so|609af852a498b0a50eb00f2d75913e0fbcbbaee6
 # DRM - Widevine - LA.UM.8.6.r1-04700-89xx.0
 vendor/bin/hw/android.hardware.drm@1.2-service.widevine|b626d9bbf7043c66c8ef903c9d0e5183fc47388d
 vendor/etc/init/android.hardware.drm@1.2-service.widevine.rc|75335443a33a06a03eecfa714dfe9f1c0c4df2b1
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.2-service.widevine.xml|91d7c0996133556cb7f7c5d1b7e5d9e7f07b78b2
 vendor/lib64/libwvhidl.so|4af61fdcf1186700ea7ee23c607fb9ce5fd0f0e8
 
 # Fingerprint
@@ -394,8 +401,8 @@ vendor/bin/loc_launcher|6fe9d0230143f4aa96ddb9c047abe3d003cc815a
 vendor/bin/lowi-server|a8bc41ef3b368fd998f6dc770f1d2d31d9b01d5d
 vendor/bin/xtra-daemon|b14b950929dd254d89bb60dbbfe50d2fdb75904c
 vendor/etc/init/android.hardware.gnss@2.0-service-qti.rc|8e0b0596a13b8d653e6f5415c41d8a53bb12b73a
--vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|38f9da1e2592897822b056a5ba5087cf6d437249
--vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6c224bcb9ab9a0d57adfb9e52f1b53e
+vendor/etc/vintf/manifest/android.hardware.gnss@2.0-service-qti.xml|38f9da1e2592897822b056a5ba5087cf6d437249
+vendor/etc/vintf/manifest/vendor.qti.gnss@3.0-service.xml|9b2f6691d6c224bcb9ab9a0d57adfb9e52f1b53e
 vendor/lib64/hw/android.hardware.gnss@2.0-impl-qti.so|6b3f372a106473882e62854a8038354c6065b344
 vendor/lib64/hw/vendor.qti.gnss@3.0-impl.so|32ccc4455dd0809a841f1f38c97ca91f941f7d97
 vendor/lib64/libbatching.so|ce6799fd48882ec0a841a96751371ffe1cff7dcf
@@ -532,6 +539,7 @@ vendor/lib/libvqzip.so|c2cf1d2938c7af82bf011c8d371dfa8ae6cb038e
 
 # NFC
 lib64/hw/nfc_nci.bcm2079x.default.so:vendor/lib64/hw/nfc_nci.bcm2079x.msm8953.so|265bfb5be9efa535596999b233b513011c5cb3bd
+vendor/firmware/BCM20797B0_002.001.043.0005.0010_Generic_NCD_Unsigned_configdata.ncd
 
 # Perf - from LA.UM.8.6.r1-04700-89xx.0
 vendor/bin/energy-awareness|def07e366347c7f0a7778b748acb49557ab21d2a
@@ -551,7 +559,7 @@ vendor/lib/libqti-util.so|5baec080c5c5c26778d2242bfc0e570ca92b7724
 
 # Perf (configs) - from LA.UM.8.6.r1-04700-89xx.0
 vendor/etc/perf/commonresourceconfigs.xml|2ac5b53ddc88df44500247d705c73b6c0ab7763d
-vendor/etc/perf/perfboostsconfig.xml|1c120821b2fe9b3ebf9d00b7bc8c0a374c2918d2
+vendor/etc/perf/perfboostsconfig.xml|38b4b759cd949ed4afc81722cd8d0f05b52726ba
 vendor/etc/perf/perfconfigstore.xml|dfa3a78fd24cba4b870a3cd04d657cc9962c8331
 vendor/etc/perf/targetconfig.xml|aa20c25397df1455206965737f82d44d44430e45
 vendor/etc/perf/targetresourceconfigs.xml|d9f9815764725df55e748bf4af4829e609dac853
@@ -561,13 +569,13 @@ vendor/bin/pm-proxy|2ac2d0e897ccb4c9a96b6a4cd3d66c2ef66c5b61
 vendor/bin/pm-service|68a46996bcb9014ebc948990fd943c40206dd8f2
 vendor/lib64/libperipheral_client.so|fe796ff65665d341ddaa5847c26504b96a8c78ee
 
-# Power-off alarm - from LA.UM.8.6.r1-04700-89xx.0
--product/app/PowerOffAlarm/PowerOffAlarm.apk|c214e1f7de878aeebe642857d6283bbeca0c7a3e
-vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|42c161f4b3033ee2ce33ec3e505031e9137577e7
-vendor/bin/power_off_alarm|22e0d6e5cab225cb430b2c860f480b43103a4701
+# Power-off alarm - from LA.UM.9.6.3.r1-04400-89xx.0
+product/app/PowerOffAlarm/PowerOffAlarm.apk|bc906abd03e4a243201dde626b6580fd8a4f73ce
+vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service|586b142f9bc4bf3098b4962682c4de1c13810f9b
+vendor/bin/power_off_alarm|b8c7ddc1bed336753c3746925fd0f4a9925aa36c
 vendor/etc/init/vendor.qti.hardware.alarm@1.0-service.rc|a03a9a1c818595b19272ea6ffb466e23a7fc3b05
-vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|cbf2dd1cd5cbf0dbb90f1563a77bc7fee608fb2e
-vendor/lib64/vendor.qti.hardware.alarm@1.0.so|680d4ad1999c8db44ee7d6240dda4ec1873e4c4d
+vendor/lib64/hw/vendor.qti.hardware.alarm@1.0-impl.so|4129558506dc078c03679ba362acda4755457742
+vendor/lib64/vendor.qti.hardware.alarm@1.0.so|3c182fd3343942c431e1d27d87f8fe114644ca36
 
 # QMI - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
 lib64/libdiag_system.so:system_ext/lib64/libdiag_system.so|811c30efa526e8e3828b112487b1d203cca5ed6e
@@ -607,10 +615,9 @@ vendor/lib64/libqmi_cci.so|301271923d990e035416fb1ebc3d1b8b6f7b55b7
 vendor/lib64/libqsocket.so|6264041e0e897f78dc9b6a4be6424cbd927669d0
 
 # Radio - from Tissot PKQ1.180917.001.V10.0.17.0.PDHMIXM
--app/QtiTelephonyService/QtiTelephonyService.apk:system_ext/app/QtiTelephonyService/QtiTelephonyService.apk|420b39e20a5166940c1e2e55e8d9c92ec910cebb
+app/QtiTelephonyService/QtiTelephonyService.apk:system_ext/app/QtiTelephonyService/QtiTelephonyService.apk|420b39e20a5166940c1e2e55e8d9c92ec910cebb
 framework/QtiTelephonyServicelibrary.jar:system_ext/framework/QtiTelephonyServicelibrary.jar|1df2f89ffb3aedc36e1c2ca7cafbf73a6a06b3fb
 framework/qcrilhook.jar:system_ext/framework/qcrilhook.jar|784df5e6aa9df0127700b9a6f1083440ebfac057
-system_ext/framework/qti-telephony-common.jar|8c99640be5b9b9ee886bfc450b6923a33eb2fd8b
 vendor/bin/ATFWD-daemon|d8e8b853f33411504054eb965b1fb836544daee4
 vendor/bin/netmgrd|e9c82b0644cb08b160a2ce484fdb58830306237d
 vendor/bin/port-bridge|28265e259a83b1370827f626fad4abe6784a9025
@@ -653,11 +660,10 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so|99296dc2831410fe
 vendor/radio/qcril_database/qcril.db|43b7d5e7ededc9cd5c0b1f7a8941d21d4eb0c9c1
 
 # Radio - from LA.UM.8.6.r1-04700-89xx.0
--product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk:system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|71d083671c3ea4cd5e287a63fb254bb0ab60ed20
+product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk:system_ext/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|71d083671c3ea4cd5e287a63fb254bb0ab60ed20
 product/etc/permissions/qcrilhook.xml:system_ext/etc/permissions/qcrilhook.xml|ceb890ab3c1645aa0d0044abab1ba58c4097a991
 product/etc/permissions/telephony_product_privapp-permissions-qti.xml|68901007ba1a48ceb1b728fc3b5483dd51b5e3a0
 system_ext/etc/permissions/telephony_system-ext_privapp-permissions-qti.xml|4f0056403f56928b8c75a617ba582f17061f89ae
-system_ext/framework/qti-telephony-common.jar|c564e61243837f8fcbe95a9b7e36bf391c49e6c5
 product/etc/permissions/telephonyservice.xml:system_ext/etc/permissions/telephonyservice.xml|a39eefcaf85fb8da60044fdbbcfddd95deb031c8
 vendor/bin/adpl|481bc4706de42457d195552c0fa517952804a7c2
 vendor/etc/init/dataadpl.rc|cd4907d9bfd438fe5f5c86f5d6cec590ac0bac2a
@@ -708,7 +714,7 @@ vendor/lib64/vendor.qti.imsrtpservice@1.0.so|559a2dbf409d86746ed4303f2e0089256bb
 # Radio - IMS - from LA.UM.8.6.r1-04700-89xx.0
 product/lib64/libimscamera_jni.so:system_ext/lib64/libimscamera_jni.so|41fd9faa10818c9f7c5a14d372a07f79b0ca0daa
 product/lib64/libimsmedia_jni.so:system_ext/lib64/libimsmedia_jni.so|86ff68440540c40834c2e17261f178f7de50549e
--product/priv-app/ims/ims.apk:system_ext/priv-app/ims/ims.apk|bdcc5e342c55074832e7c3a7ca3f77872f68cd1e
+product/priv-app/ims/ims.apk:system_ext/priv-app/ims/ims.apk|bdcc5e342c55074832e7c3a7ca3f77872f68cd1e
 vendor/etc/init/ims_rtp_daemon.rc|b3c3a380204d7b1b3a58937db8c8e76c00ac8825
 vendor/etc/init/imsdatadaemon.rc|29face37c174aebcd1358f7d7ad0bd4baf83063b
 vendor/etc/init/imsqmidaemon.rc|dda16d842b7c65296e97bc9921b723a43b152ba3
@@ -716,14 +722,12 @@ vendor/etc/init/imsrcsd.rc|2dc42ff6e4b6dd389bd3bc9a7af30dec2f1a45df
 vendor/lib64/vendor.qti.ims.rcsconfig@1.1.so|936011dbcfd05ea9350f7410bb6f4d69ddd3fb61
 
 # Sensor
-vendor/lib/hw/activity_recognition.msm8953.so
 vendor/lib/lib_acgdaemon.so
 vendor/lib/libmag_akm.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
 vendor/lib/sensors.alsps.so
 vendor/lib/sensors.st.so
-vendor/lib64/hw/activity_recognition.msm8953.so
 vendor/lib64/lib_acgdaemon.so
 vendor/lib64/libmag_akm.so
 vendor/lib64/libsensor1.so
@@ -738,7 +742,7 @@ vendor/bin/thermal-engine|60cbc090088553b1e6ca93d1156f3815d00ef387
 vendor/lib64/libthermalioctl.so|1d6587245c7e7148638f14254e2f61f6b5552857
 
 # Time services - from LA.UM.8.6.r1-04700-89xx.0
--vendor/app/TimeService/TimeService.apk|c935b678fdaed033513f044f6492361c3370f9f0
+vendor/app/TimeService/TimeService.apk|c935b678fdaed033513f044f6492361c3370f9f0
 vendor/bin/time_daemon|d2e3ab15de0f269426c513883fb2425586423306
 vendor/etc/init/init.time_daemon.rc|b253ca2a498757e14e1d7a051bf504ae09218f51
 vendor/lib64/libtime_genoff.so|b056a9bc0ab6642369eda0ce3b097b036da2b24e
@@ -748,6 +752,7 @@ vendor/bin/hw/vendor.qti.hardware.tui_comm@1.0-service-qti|05c0a47f24e38b14fc7c1
 vendor/etc/init/vendor.qti.hardware.tui_comm@1.0-service-qti.rc|2cfc563d7e1579374f001c94588fae7835a12ffc
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so|7343cf8a20fb8e72e17b014cda7b5ae85841354a
 
-# WiFi
+# Wi-Fi - from LA.UM.8.6.r1-04700-89xx.0
+vendor/bin/wcnss_service|4bf3962fa1444caca2d3497e71ae4cd2ba306aa1
 etc/firmware/wlan/prima/WCNSS_cfg.dat:vendor/firmware/wlan/prima/WCNSS_cfg.dat
 etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_lenovo.bin:vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin

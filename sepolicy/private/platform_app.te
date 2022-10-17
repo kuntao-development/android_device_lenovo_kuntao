@@ -1,0 +1,2 @@
+# Radio
+get_prop(platform_app, radio_cdma_ecm_prop)

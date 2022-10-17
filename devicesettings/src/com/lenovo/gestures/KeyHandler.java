@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019 The LineageOS Project
+ * Copyright (C) 2022 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -68,7 +68,7 @@ public class KeyHandler implements DeviceKeyHandler {
            if((System.currentTimeMillis() - time) < 500) return null;
 
            /* Consume the fingerprint gestures key events if not enabled */
-            return !mFingerprintGesturesEnabled ? null : event;
+           return !mFingerprintGesturesEnabled ? null : event;
         }
 
         return event;

@@ -1,6 +1,5 @@
 #!/vendor/bin/sh
-
-# Copyright (c) 2009-2021, The Linux Foundation. All rights reserved.
+# Copyright (c) 2009-2017, 2021-2022, The Linux Foundation. All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -26,7 +25,6 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-
 
 #
 # Make modem config folder and copy firmware config to that folder for RIL

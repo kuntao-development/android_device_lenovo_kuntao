@@ -1,1 +1,14 @@
-type vendor_fp_gesture_prop, property_type;
+# Fp gestures
+vendor_public_prop(vendor_fp_gesture_prop);
+
+# Wi-Fi
+vendor_internal_prop(vendor_wifi_prop);
+
+# Aware
+vendor_restricted_prop(vendor_aware_available_prop);
+
+# Slm property
+vendor_restricted_prop(vendor_slm_prop);
+
+# Smart charger
+vendor_internal_prop(vendor_smart_charger_prop);

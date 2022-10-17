@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2016 The CyanogenMod Project
-     Copyright (C) 2020-2021 The LineageOS Project
+     Copyright (C) 2020-2022 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,13 +24,14 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
 
-    <uses-sdk
-        android:minSdkVersion="30" />
+    <protected-broadcast android:name="com.lenovo.gestures.FINGERPRINT_GESTURES" />
 
     <application
-        android:label="@string/device_settings_app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/lenovo_gestures_title"
         android:defaultToDeviceProtectedStorage="true"
-        android:directBootAware="true">
+        android:directBootAware="true"
+        android:theme="@style/Theme.SubSettingsBase">
 
         <provider
             android:name=".DeviceSettingsSearchIndexablesProvider"
@@ -46,21 +47,21 @@
 
         <activity
             android:name=".ButtonSettingsActivity"
-            android:theme="@style/Theme.Main"
             android:label="@string/fingerprint_kuntao_title"
             android:exported="true">
         </activity>
 
         <activity android:name=".KeyHandler" />
-        <receiver android:name=".BootCompletedReceiver">
+        <receiver android:name=".BootCompletedReceiver" android:exported="true">
             <intent-filter android:priority="1000">
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
         <service
             android:name=".ButtonTileService"
+            android:exported="true"
             android:icon="@drawable/ic_gestures"
             android:label="@string/fingerprint_gestures_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">

@@ -1,11 +1,14 @@
 //
-// Copyright (C) 2017-2021 The LineageOS Project
+// Copyright (C) 2017-2022 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 
 android_app {
     name: "LenovoGestures",
+    defaults: [
+        "SettingsLibDefaults",
+    ],
 
     srcs: ["src/**/*.java"],
     resource_dirs: ["res"],
@@ -15,10 +18,23 @@ android_app {
     privileged: true,
 
     static_libs: [
-        "org.lineageos.settings.resources",
+        "androidx.core_core",
+        "androidx.preference_preference",
     ],
 
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
+
+    required: [
+        "com.lenovo.gestures_whitelist"
+    ],
+}
+
+prebuilt_etc {
+    name: "com.lenovo.gestures_whitelist",
+    system_ext_specific: true,
+    sub_dir: "sysconfig",
+    src: "com.lenovo.gestures_whitelist.xml",
+    filename_from_src: true,
 }

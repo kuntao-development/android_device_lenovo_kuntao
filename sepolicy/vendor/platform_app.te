@@ -1,11 +1,9 @@
+# Alarm
+allow platform_app hal_alarm_qti_hwservice:hwservice_manager find;
+binder_call(platform_app, hal_alarm_qti_default);
+
 # FPS info
 allow platform_app sysfs_fps:file rw_file_perms;
 
-# Alarm
-binder_call(platform_app, hal_alarm_qti_default);
-allow platform_app hal_alarm_qti_hwservice:hwservice_manager find;
-
-# System Info
-r_dir_file(platform_app, sysfs_usb_supply);
-r_dir_file(platform_app, sysfs_battery_supply);
-r_dir_file(platform_app, sysfs_kgsl);
+# Audio
+get_prop(platform_app, audio_config_prop);

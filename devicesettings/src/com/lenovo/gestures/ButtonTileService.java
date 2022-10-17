@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 Evolution X Project
+* Copyright (C) 2022 The LineageOS Project
 *
 * This program is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,8 @@ package com.lenovo.gestures;
 import android.content.Intent;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
+
+import com.lenovo.gestures.ButtonSettingsActivity;
 
 import com.lenovo.gestures.R;
 

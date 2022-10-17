@@ -1,0 +1,2 @@
+# allow system apps to read qemu.hw.mainkeys
+get_prop(system_app, qemu_hw_prop)

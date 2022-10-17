@@ -9,20 +9,18 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.INJECT_EVENTS"/>
 
-    <uses-sdk android:minSdkVersion="30" />
-
-    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
-    <protected-broadcast android:name="com.lenovo.parts.CUST_UPDATE" />
-
     <application
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/lenovoparts_title"
         android:supportsRtl="true"
-        android:theme="@style/CustomOptionsTheme">
+        android:defaultToDeviceProtectedStorage="true"
+        android:directBootAware="true"
+        android:theme="@style/Theme.SubSettingsBase">
 
         <receiver
-            android:name=".BootReceiver">
+            android:name=".BootReceiver" android:exported="true">
             <intent-filter android:priority="1000">
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
             </intent-filter>
@@ -56,7 +54,6 @@
         <activity
             android:name=".kcal.KCalSettingsActivity"
             android:exported="true"
-            android:theme="@style/CustomOptionsTheme"
             android:label="@string/advanced_settings_kcal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,51 +61,14 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.lenovo.parts.ambient.SensorsDozeService"
-                 android:permission="SensorsDozeService">
-        </service>
-
-        <activity
-            android:name=".ambient.AmbientGesturePreferenceActivity"
-            android:icon="@drawable/ic_doze"
-            android:exported="true"
-            android:theme="@style/CustomOptionsTheme"
-            android:label="@string/ambient_display_gestures_title">
-        </activity>
-
         <service
-            android:name=".tile.LenovoPartsTile"
-            android:enabled="true"
+            android:name=".LenovoPartsTile"
+            android:exported="true"
             android:icon="@drawable/ic_lenovoparts"
             android:label="@string/lenovoparts_title"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".tile.DozeTileService"
-            android:icon="@drawable/ic_doze"
-            android:label="@string/ambient_display_gestures_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action android:name="android.service.quicksettings.action.QS_TILE"/>
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".FPSInfoService"
-            android:exported="false">
-        </service>
-        <service
-            android:name=".tile.FPSTileService"
-            android:icon="@drawable/ic_fps_tile"
-            android:label="@string/fps_info_title"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
-            <intent-filter>
-                <action
-                    android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
         </service>
     </application>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- kcal -->
+    <!-- Kcal -->
     <array name="preset_enteries">
         <item>@string/preset_default</item>
         <item>@string/preset_version_1</item>

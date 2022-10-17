@@ -1,0 +1,10 @@
+#
+# system_ext.prop for kuntao
+#
+
+# Cast
+media.wfd.max_resolution=5
+
+# Radio
+ro.telephony.use_old_mnc_mcc_format=true
+ro.telephony.handle_audio_direction_changes_between_call_state_changes=false
