@@ -9,27 +9,25 @@
     <string name="glove_mode_title">Yüksek dokunmatik hassasiyeti</string>
     <string name="glove_mode_summary">Dokunmatik ekran hassasiyetini arttırarak eldiven ile kullanıma olanak verir</string>
 
+    <!-- Usb fastcharge -->
+    <string name="fastcharger_title">Usb</string>
+    <string name="fastcharge_title">Usb hızlı şarj</string>
+    <string name="fastcharge_summary">Bilgisayara usb portu ile bağlanıldığında hızlı şarjı etkinleştir</string>
+
     <!-- Vibrator -->
     <string name="vibration_category">Titreşim</string>
     <string name="vibration_strength_title">Titreşim yoğunluğu</string>
 
-    <!-- Torch -->
-    <string name="torch_category">Fener</string>
-    <string name="yellow_torch_brightness_title">Sarı fener parlaklığı</string>
-    <string name="white_torch_brightness_title">Beyaz fener parlaklığı</string>
-
     <!-- Sound control -->
     <string name="audio_category">Ses</string>
-    <string name="headphone_gain">Kulaklık ses seviyesi</string>
-    <string name="microphone_gain">Mikrofon ses seviyesi</string>
-    <string name="speaker_gain">Hoparlör ses seviyesi</string>
+    <string name="headphone_gain">Kulaklık &amp; Arama ses seviyesi</string>
 
     <!-- Fp gestures -->
     <string name="fp_title">Hareketler</string>
     <string name="fp_settings_title">Parmak izi hareketleri</string>
-    <string name="fp_settings_summary">Cihazınızın parmak izi hareketlerini kullanın</string>
+    <string name="fp_settings_summary">Cihaza özel parmak izi hareketleri</string>
 
-    <!-- kcal -->
+    <!-- Kcal -->
     <string name="display_category">Ekran</string>
     <string name="device_kcal_title">Ekran renk kalibrasyonu</string>
     <string name="device_kcal_summary">Kcal kullanarak ekranı kalibre edin</string>
@@ -75,41 +73,4 @@
     <!-- Menu -->
     <string name="kcal_presets">@string/presets_dialog_title</string>
     <string name="kcal_reset">Sıfırla</string>
-
-    <!-- Label for feature switch  -->
-    <string name="switch_bar_on">Açık</string>
-    <string name="switch_bar_off">Kapalı</string>
-
-    <!-- Ambient gesture haptic feedback -->
-    <string name="ambient_gesture_haptic_feedback_title">Geri bildirim</string>
-    <string name="ambient_gesture_haptic_feedback">Dokumsal geribildirim</string>
-    <string name="ambient_gesture_haptic_feedback_summary">Bir ortam hareketi algılandığında titret</string>
-
-    <!-- Ambient display -->
-    <string name="ambient_display_enable_title">Ortam ekranı</string>
-    <string name="ambient_display_gestures_title">Ortam ekranı hareketleri</string>
-    <string name="ambient_display_gestures_summary">Cihazı uyandırmak için ek hareketleri kullanın</string>
-
-    <!-- Hand wave gesture -->
-    <string name="tilt_sensor_title">Eğrilik sensörü</string>
-    <string name="hand_wave_gesture_title">El sallama</string>
-    <string name="hand_wave_gesture_summary">El sallayınca bildirimleri göster</string>
-
-    <!-- Pick-up gesture -->
-    <string name="pickup_sensor_title">Ele alma sensörü</string>
-    <string name="pick_up_gesture_title">Telefonu kaldır</string>
-    <string name="pick_up_gesture_summary">Telefonu kaldırınca bildirimleri göster</string>
-
-    <!-- Pocket gesture -->
-    <string name="pocket_gesture_title">Cep modu</string>
-    <string name="pocket_gesture_summary">Cepten çıkarınca bildirimleri göster</string>
-
-    <!-- Proximity wake -->
-    <string name="proximity_sensor_title">Yakınlık sensörü</string>
-    <string name="proximity_wake_enable_title">Harekette uyandır</string>
-    <string name="proximity_wake_enable_summary">El sallayınca cihazı uyandır</string>
-
-    <!-- FPS Info -->
-    <string name="fps_info_title">FPS bilgisi</string>
-    <string name="fps_info_summary">Fps bilgilerini saniyedeki geçerli kare sayısı ile göster</string>
 </resources>

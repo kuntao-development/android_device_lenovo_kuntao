@@ -1,17 +1,19 @@
+allow system_server system_file:file ioctl;
+
 allow system_server vfmService:process signull;
 
 allow system_server vfsspi_device:dir search;
 allow system_server vfsspi_device:fifo_file rw_file_perms;
 
+allow system_server sysfs_battery_supply:dir r_dir_perms;
+
 # Vibrator
 allow system_server sysfs_vibrator:file read;
 
-# Zygote
+# App zygote
 allow system_server app_zygote:process getpgid;
 
-# Smart charger
-allow system_server sysfs_usb_supply:file rw_file_perms;
-
 get_prop(system_server, exported_camera_prop);
+get_prop(system_server, build_bootimage_prop);
 get_prop(system_server, userspace_reboot_config_prop);
 get_prop(system_server, userspace_reboot_exported_prop);

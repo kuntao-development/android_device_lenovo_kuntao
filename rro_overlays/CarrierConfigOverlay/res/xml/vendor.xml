@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-<!--Copyright (c) 2016, 2019, 2021 The Linux Foundation. All rights reserved.
+<!--Copyright (c) 2016, 2019, 2021, 2022 The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -45,10 +45,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
 
     <carrier_config>
         <boolean name="apn_expand_bool" value="true" />
-        <boolean name="world_phone_bool" value="true" />
+        <boolean name="world_phone_bool" value="false" />
         <boolean name="allow_adding_apns_bool" value="true" />
         <boolean name="hide_preferred_network_type_bool" value="false" />
-        <boolean name="show_cdma_choices_bool" value="true" />
+        <boolean name="show_cdma_choices_bool" value="false" />
         <boolean name="allow_video_call_in_low_battery" value="true" />
         <boolean name="config_enable_display_14digit_imei" value="false" />
         <!-- Determines whether UI extensions for video calls should be used or not -->
@@ -108,12 +108,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="carrier_supports_multianchor_conference" value="false"/>
         <!-- Config for Call Composer Feature support  -->
         <boolean name="carrier_call_composer_supported_bool" value="false"/>
-
-        <!-- If this is true, the SIM card (through Customer Service Profile EF file) will be
-         able to prevent manual operator selection. If false, this SIM setting will be
-         ignored and manual operator selection will always be available. See
-         CPHS4_2.WW6, CPHS B.4.7.1 for more information -->
-        <boolean name="csp_enabled_bool" value="true" />
     </carrier_config>
 
     <carrier_config mcc="001" mnc="01">

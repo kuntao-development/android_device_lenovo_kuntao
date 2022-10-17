@@ -3,4 +3,15 @@ typeattribute vendor_init data_between_core_and_vendor_violators;
 allow vendor_init {
     system_data_file
     vfsspi_data_file
+    vendor_camera_data_file
 }:dir create_dir_perms;
+
+allow vendor_init {
+    device
+}:file { create getattr open read setattr ioctl write relabelfrom };
+
+allow vendor_init proc_dirty:file w_file_perms;
+allow vendor_init proc_dirty_ratio:file w_file_perms;
+
+# Fp gestures
+set_prop(vendor_init, vendor_fp_gesture_prop);

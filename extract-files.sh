@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2021 The LineageOS Project
+# Copyright (C) 2017-2022 The LineageOS Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -62,7 +62,9 @@ function blob_fixup() {
            "${PATCHELF}" --add-needed "libdpmframework_shim.so" "${2}"
             ;;
         system_ext/lib64/lib-imsvideocodec.so)
-           "${PATCHELF}" --add-needed "libvt_shim.so" "${2}"
+        for LIBVT_SHIM in $(grep -L "libvt_shim.so" "${2}"); do
+            "${PATCHELF}" --add-needed "libvt_shim.so" "${LIBVT_SHIM}"
+        done
             ;;
         system_ext/etc/init/dpmd.rc)
             sed -i "s/\/system\/product\/bin\//\/system\/system_ext\/bin\//g" "${2}"
@@ -95,8 +97,6 @@ function blob_fixup() {
             ;&
         vendor/lib/libmmcamera2_stats_algorithm.so)
             ;&
-        vendor/lib/libmmcamera2_stats_modules.so)
-            ;&
         vendor/lib/libmmcamera_imglib.so)
             ;&
         vendor/lib/libmmcamera_pdaf.so)
@@ -111,6 +111,11 @@ function blob_fixup() {
         vendor/lib/libmmcamera2_sensor_modules.so)
             sed -i 's|/system/etc/camera|/vendor/etc/camera|g' "${2}"
             sed -i 's|/data/misc/camera|/data/vendor/qcam|g' "${2}"
+            ;;
+        vendor/lib/libmmcamera2_stats_modules.so)
+            sed -i 's|/data/misc/camera|/data/vendor/qcam|g' "${2}"
+            sed -i 's|libandroid.so|libcamshim.so|g' "${2}"
+            "${PATCHELF}" --replace-needed "libgui.so" "libgui_vendor.so" "${2}"
             ;;
         vendor/lib/libmmcamera_dbg.so)
             sed -i 's|persist.camera.debug.logfile|persist.vendor.camera.dbglog|g' "${2}"

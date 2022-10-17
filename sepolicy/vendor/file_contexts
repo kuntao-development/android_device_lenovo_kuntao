@@ -5,53 +5,41 @@
 # Camera
 /data/vendor/qcam(/.*)?                                                    u:object_r:vendor_camera_data_file:s0
 
-# Fastcharger
-/vendor/bin/smart_charger                                                  u:object_r:smart_charger_exec:s0
+# Fast charger
+/(vendor|system/vendor)/bin/smart_charger                                                  u:object_r:smart_charger_exec:s0
 /sys/devices/soc/78b8000\.i2c/i2c-4/4-0057/power_supply/battery(/.*)?      u:object_r:sysfs_usb_supply:s0
 /sys/devices/soc/78b8000\.i2c/i2c-4/4-0057/power_supply/ext-charger(/.*)?  u:object_r:sysfs_usb_supply:s0
 /sys/devices/virtual/hwmon/hwmon5/temp1_input                              u:object_r:sysfs_temperature:s0
 
 # Fingerprint
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\.kuntao u:object_r:hal_fingerprint_default_exec:s0
-/vendor/bin/vfmService                                                     u:object_r:vfmService_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service\.kuntao u:object_r:hal_fingerprint_default_exec:s0
+/(vendor|system/vendor)/bin/vfmService                                                     u:object_r:vfmService_exec:s0
 /dev/vfsspi                                                                u:object_r:vfsspi_device:s0
 /dev/validity(/.*)?                                                        u:object_r:vfsspi_device:s0
 /data/validity(/.*)?                                                       u:object_r:vfsspi_data_file:s0
 
 # Lights
 /sys/devices/soc/78b8000\.i2c/i2c-4/4-0064/leds(/.*)?                      u:object_r:sysfs_leds:s0
-/vendor/bin/hw/android\.hardware\.light@2\.0-service\.kuntao               u:object_r:hal_light_default_exec:s0
-
-# I/O
-# This node is already labelled by QCOM but Lineage overrides it with sysfs_io_sched_tunable label
-# Since qti_init_shell needs to write to it, LOS's private label isn't accessible by our vendor
-# Relabel it to QCOM's sysfs_mmc_host label to get rid of denials
-/sys/devices(/platform)?/soc/[a-f0-9]+.sdhci/mmc_host/mmc[0-9]/mmc[0-9]:[a-f0-9]+/block/mmcblk[0-9]/queue/read_ahead_kb u:object_r:sysfs_mmc_host:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.kuntao               u:object_r:hal_light_default_exec:s0
 
 # NFC
 /dev/bcm2079x-i2c                                                          u:object_r:nfc_device:s0
 
-# Root files
-/firmware(/.*)?                                                            u:object_r:firmware_file:s0
-/persist(/.*)?                                                             u:object_r:mnt_vendor_file:s0
-
 # Lenovo parts
-/sys/devices/soc/qpnp-flash-led-22/leds/led:torch_0/max_brightness          u:object_r:sysfs_torch:s0
-/sys/devices/soc/qpnp-flash-led-22/leds/led:torch_1/max_brightness          u:object_r:sysfs_torch:s0
 /sys/devices/platform/kcal_ctrl.0(/.*)?                                     u:object_r:sysfs_kcal:s0
 /sys/devices/virtual/timed_output/vibrator/vtg_level                   u:object_r:sysfs_vibrator:s0
 
 # FPS Info
 /sys/devices/virtual/graphics/fb0/measured_fps           u:object_r:sysfs_fps:s0
 
-# Power aidl stats
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power\.stats@1\.0-service\.mock              u:object_r:hal_power_stats_default_exec:s0
+# Root files
+/firmware(/.*)?                                                            u:object_r:firmware_file:s0
+/persist(/.*)?                                                             u:object_r:mnt_vendor_file:s0
 
 # Sensors
-/vendor/bin/hw/android\.hardware\.sensors@1\.0-service\.kuntao             u:object_r:hal_sensors_default_exec:s0
+/(mnt/vendor)/persist/GSSET\.txt                                           u:object_r:sensors_persist_file:s0
 /data/misc/akmd_set\.txt                                                   u:object_r:sensors_data_file:s0
 /data/STSensorHAL/iNemoEngine_gbias\.dat                                   u:object_r:sensors_data_file:s0
-/(mnt/vendor)/persist/GSSET\.txt                                           u:object_r:sensors_persist_file:s0
 /sys/bus/iio/devices                                                       u:object_r:sysfs_sensors:s0
 /sys/devices/iio:device[0-9](/.*)?                                         u:object_r:sysfs_sensors:s0
 /sys/devices/platform/elan_alsps(/.*)?                                     u:object_r:sysfs_sensors:s0

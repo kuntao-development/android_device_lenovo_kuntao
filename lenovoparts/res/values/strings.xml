@@ -9,27 +9,25 @@
     <string name="glove_mode_title">High touch sensitivity</string>
     <string name="glove_mode_summary">Increase touchscreen sensitivity so it can be used while wearing gloves</string>
 
+    <!-- Usb fastcharge -->
+    <string name="fastcharger_title">Usb</string>
+    <string name="fastcharge_title">Usb fast charge</string>
+    <string name="fastcharge_summary">Enable fast charge when connected to a computer via usb port</string>
+
     <!-- Vibrator -->
     <string name="vibration_category">Vibration</string>
     <string name="vibration_strength_title">Vibration strength</string>
 
-    <!-- Torch -->
-    <string name="torch_category">Torch</string>
-    <string name="yellow_torch_brightness_title">Yellow torch brightness</string>
-    <string name="white_torch_brightness_title">White torch brightness</string>
-
     <!-- Sound control -->
     <string name="audio_category">Audio</string>
-    <string name="headphone_gain">Headphone gain</string>
-    <string name="microphone_gain">Microphone gain</string>
-    <string name="speaker_gain">Speaker gain</string>
+    <string name="headphone_gain">Headphone &amp; In-call gain</string>
 
     <!-- Fp gestures -->
     <string name="fp_title">Gestures</string>
     <string name="fp_settings_title">Fingerprint gestures</string>
-    <string name="fp_settings_summary">Use your device fingerprint gestures</string>
+    <string name="fp_settings_summary">Device specific fingerprint gestures</string>
 
-    <!-- kcal -->
+    <!-- Kcal -->
     <string name="display_category">Display</string>
     <string name="device_kcal_title">Display calibration</string>
     <string name="device_kcal_summary">Display color calibration using kcal</string>
@@ -81,41 +79,4 @@
     <!-- menu -->
     <string name="kcal_presets">@string/presets_dialog_title</string>
     <string name="kcal_reset">Reset</string>
-
-    <!-- Label for feature switch  -->
-    <string name="switch_bar_on">On</string>
-    <string name="switch_bar_off">Off</string>
-
-    <!-- Ambient gesture haptic feedback -->
-    <string name="ambient_gesture_haptic_feedback_title">Feedback</string>
-    <string name="ambient_gesture_haptic_feedback">Haptic feedback</string>
-    <string name="ambient_gesture_haptic_feedback_summary">Vibrate when a ambient gesture is detected</string>
-
-    <!-- Ambient Display -->
-    <string name="ambient_display_enable_title">Ambient display</string>
-    <string name="ambient_display_gestures_title">Ambient display gestures</string>
-    <string name="ambient_display_gestures_summary">Additional gestures to wake the screen</string>
-
-    <!-- Hand wave gesture -->
-    <string name="tilt_sensor_title">Tilt sensor</string>
-    <string name="hand_wave_gesture_title">Hand wave</string>
-    <string name="hand_wave_gesture_summary">Pulse notifications on hand wave</string>
-
-    <!-- Pick-up gesture -->
-    <string name="pickup_sensor_title">Pickup sensor</string>
-    <string name="pick_up_gesture_title">Pick-up</string>
-    <string name="pick_up_gesture_summary">Pulse notifications on pick-up</string>
-
-    <!-- Pocket gesture -->
-    <string name="pocket_gesture_title">Pocket</string>
-    <string name="pocket_gesture_summary">Pulse notifications on removal from pocket</string>
-
-    <!-- Proximity wake -->
-    <string name="proximity_sensor_title">Proximity sensor</string>
-    <string name="proximity_wake_enable_title">Proximity wake</string>
-    <string name="proximity_wake_enable_summary">Wake device on hand wave</string>
-
-    <!-- FPS Info -->
-    <string name="fps_info_title">FPS info</string>
-    <string name="fps_info_summary">Show overlay with current frames per second</string>
 </resources>

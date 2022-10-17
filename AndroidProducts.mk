@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017-2021 The LineageOS Project
+# Copyright (C) 2017-2022 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,7 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/xtended_kuntao.mk
+    $(LOCAL_DIR)/awaken_kuntao.mk
 
 COMMON_LUNCH_CHOICES := \
-    xtended_kuntao-user \
-    xtended_kuntao-userdebug \
-    xtended_kuntao-eng
+    awaken_kuntao-userdebug

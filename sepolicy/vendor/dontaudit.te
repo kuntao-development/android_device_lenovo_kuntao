@@ -1,0 +1,56 @@
+dontaudit iorapd self:capability { dac_read_search };
+
+# Silence dalvikcache logspam
+dontaudit untrusted_app dalvikcache_data_file:file execmod;
+
+dontaudit untrusted_app {
+    sysfs_net
+    sysfs_switch
+    input_device
+}:dir search;
+
+# Silence some proc related logspam
+dontaudit untrusted_app {
+    proc
+    proc_net
+    proc_net_tcp_udp
+    proc_stat
+    proc_tty_drivers
+    proc_version
+    proc_zoneinfo
+    proc_loadavg
+    proc_modules
+    proc_qtaguid_stat
+    proc_pid_max
+    cgroup
+    sysfs_kgsl
+    serialno_prop
+    sysfs_socinfo
+    oem_unlock_prop
+    qemu_hw_prop
+    virtual_ab_prop
+    debugfs_trace_marker
+    qemu_sf_lcd_density_prop
+}:file { read open getattr };
+
+# Silence mt manager logspam
+dontaudit untrusted_app_27 {
+    proc_pid_max
+    proc_diskstats
+}:file { read open getattr };
+
+dontaudit untrusted_app self:netlink_route_socket bind;
+
+dontaudit untrusted_app mnt_sdcard_file:lnk_file read;
+
+dontaudit untrusted_app isolated_app:process getsched;
+
+dontaudit untrusted_app rootfs:dir read;
+
+# Window
+dontaudit untrusted_app window_service:service_manager { find };
+
+# MemTrack
+dontaudit untrusted_app hal_memtrack_hwservice:hwservice_manager { find };
+
+dontaudit untrusted_app_29 hal_memtrack_hwservice:hwservice_manager { find };

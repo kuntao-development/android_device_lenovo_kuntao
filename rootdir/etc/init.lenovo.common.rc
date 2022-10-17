@@ -6,12 +6,15 @@ service vfmservice /vendor/bin/vfmService
     class main
     user system
     group system input uhid
+    writepid /dev/cpuset/system-background/tasks
 
 on property:vendor.sys.listeners.registered=true
     start vfmservice
 
 on property:vold.decrypt=trigger_restart_framework
-    start vfmservice
+    restart smart_charger
+    restart vfmservice
+    restart vendor.fps_hal
 
 on boot
     # CABC feature
