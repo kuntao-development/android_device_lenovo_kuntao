@@ -62,9 +62,7 @@ function blob_fixup() {
            "${PATCHELF}" --add-needed "libdpmframework_shim.so" "${2}"
             ;;
         system_ext/lib64/lib-imsvideocodec.so)
-        for LIBVT_SHIM in $(grep -L "libvt_shim.so" "${2}"); do
-            "${PATCHELF}" --add-needed "libvt_shim.so" "${LIBVT_SHIM}"
-        done
+            grep -q "libvt_shim.so" "${2}" || "${PATCHELF}" --add-needed "libvt_shim.so" "${2}"
             ;;
         system_ext/etc/init/dpmd.rc)
             sed -i "s/\/system\/product\/bin\//\/system\/system_ext\/bin\//g" "${2}"
