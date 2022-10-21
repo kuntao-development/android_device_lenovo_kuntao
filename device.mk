@@ -19,9 +19,6 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-awaken
 
-# AudioFX
-TARGET_EXCLUDES_AUDIOFX := true
-
 # Optimize
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
@@ -96,7 +93,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio@5.0-impl:32 \
     android.hardware.audio.service \
     android.hardware.audio.effect@5.0-impl:32 \
-    android.hardware.bluetooth.audio@2.0-impl:32 \
+    android.hardware.bluetooth.audio-impl \
     android.hardware.soundtrigger@2.1-impl:32 \
     audio_amplifier.msm8953 \
     audio.bluetooth.default \
@@ -130,7 +127,6 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    libldacBT_bco \
     android.hardware.bluetooth@1.0.vendor:64 \
     vendor.qti.hardware.btconfigstore@1.0.vendor:64
 
@@ -148,12 +144,14 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0:64 \
     camera.msm8953 \
     libcamshim \
-    libgui_vendor:32 \
-    GrapheneCamera
+    libgui_vendor:32
 
 # CarrierConfig
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/com.android.cellbroadcastreceiver.module.xml:$(TARGET_COPY_OUT_SYSTEM)/apex/com.android.cellbroadcast/etc/permissions/privapp_allowlist_com.android.cellbroadcastreceiver.module.xml
 
 # Cgroup and task_profiles
 PRODUCT_COPY_FILES += \
@@ -175,7 +173,7 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libvulkan \
     libtinyxml \
-    vendor.display.config@1.0.vendor:64
+    vendor.display.config@1.0.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml:$(TARGET_COPY_OUT_VENDOR)/etc/qdcm_calib_data_mipi_mot_cmd_smd_1080p_549.xml
@@ -250,12 +248,7 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
-    android.hidl.base@1.0
-
-# HW crypto
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee \
-    vendor.qti.hardware.cryptfshw@1.0.vendor:64
+    android.hidl.base@1.0.vendor
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -282,10 +275,6 @@ PRODUCT_COPY_FILES += \
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
-
-# IORap
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.iorapd.enable=false
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \

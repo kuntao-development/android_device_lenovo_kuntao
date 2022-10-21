@@ -6,8 +6,5 @@ allow init sysfs_leds:lnk_file read;
 # Battery
 allow init sysfs_usb_supply:file setattr;
 
-# Discard
-allow init sysfs_mmc_host:file w_file_perms;
-
 # Other
 allow init sysfs:file setattr;

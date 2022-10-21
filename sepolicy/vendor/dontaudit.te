@@ -1,5 +1,3 @@
-dontaudit iorapd self:capability { dac_read_search };
-
 # Silence dalvikcache logspam
 dontaudit untrusted_app dalvikcache_data_file:file execmod;
 
