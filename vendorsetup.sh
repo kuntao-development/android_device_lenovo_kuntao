@@ -6,7 +6,7 @@ rm -rf kernel/lenovo/msm8953 && git clone --depth=1 https://github.com/kuntao-de
 
 echo 'Cloning vendor tree [2/18]'
 # Vendor
-rm -rf vendor/lenovo/kuntao && git clone https://github.com/kuntao-development/proprietary_vendor_lenovo -b lineage-20.0 vendor/lenovo/kuntao
+rm -rf vendor/lenovo/kuntao && git clone https://github.com/kuntao-development/proprietary_vendor_lenovo_kuntao -b lineage-20.0 vendor/lenovo/kuntao
 
 echo 'Cloning frameworks base [3/18]'
 # Frameworks base
