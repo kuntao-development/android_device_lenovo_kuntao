@@ -15,3 +15,7 @@ allow vendor_init proc_dirty_ratio:file w_file_perms;
 
 # Fp gestures
 set_prop(vendor_init, vendor_fp_gesture_prop);
+
+# Sensors
+get_prop(vendor_init, vendor_sensors_prop);
+set_prop(vendor_init, vendor_sensors_prop);

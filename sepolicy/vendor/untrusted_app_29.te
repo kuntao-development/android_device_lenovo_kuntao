@@ -1,2 +1,4 @@
 # Gcam
 get_prop(untrusted_app_29, vendor_adsprpc_prop)
+
+allow untrusted_app_29 adsprpcd_file:dir search;

@@ -1,0 +1,1 @@
+allow dumpstate app_zygote:process signal;
