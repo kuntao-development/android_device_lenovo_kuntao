@@ -77,6 +77,9 @@ persist.vendor.data.mode=concurrent
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=MSM8953
 
+# Sensors
+nosecure.akm.resetdoe=1
+
 # Time Services
 persist.vendor.delta_time.enable=true
 
