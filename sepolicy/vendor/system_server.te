@@ -13,6 +13,9 @@ allow system_server sysfs_vibrator:file read;
 # App zygote
 allow system_server app_zygote:process getpgid;
 
+# Allow HBM (running as system server) to access LiveDisplay tuneables
+allow system_server sysfs_livedisplay_tuneable:file rw_file_perms;
+
 get_prop(system_server, exported_camera_prop);
 get_prop(system_server, build_bootimage_prop);
 get_prop(system_server, userspace_reboot_config_prop);
