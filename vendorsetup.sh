@@ -1,72 +1,80 @@
 echo 'Starting to clone stuffs needed for kuntao'
 
-echo 'Cloning kernel tree [1/17]'
+echo 'Cloning kernel tree [1/19]'
 # Kernel
 rm -rf kernel/lenovo/msm8953 && git clone --depth=1 https://github.com/kuntao-development/android_kernel_lenovo_msm8953 -b lineage-20.0 kernel/lenovo/msm8953 
 
-echo 'Cloning vendor tree [2/17]'
+echo 'Cloning vendor tree [2/19]'
 # Vendor
 rm -rf vendor/lenovo/kuntao && git clone https://github.com/kuntao-development/proprietary_vendor_lenovo_kuntao -b lineage-20.0 vendor/lenovo/kuntao
 
-echo 'Cloning frameworks base [3/17]'
+echo 'Cloning frameworks base [3/19]'
 # Frameworks base
-rm -rf frameworks/base && git clone --depth=1 https://github.com/kuntao-development/android_frameworks_base -b triton frameworks/base
+rm -rf frameworks/base && git clone --depth=1 https://github.com/Astridxx/frameworks_base-1 -b xt frameworks/base
 
-echo 'Cloning frameworks native [4/17]'
+echo 'Cloning frameworks native [4/19]'
 # Native
-rm -rf frameworks/native && git clone https://github.com/Astridxx/android_frameworks_native -b triton frameworks/native
+rm -rf frameworks/native && git clone https://github.com/Astridxx/frameworks_native-1 -b xt frameworks/native
 
-echo 'Cloning frameworks libs net [5/17]'
+echo 'Cloning frameworks libs net [5/19]'
 # Libs net
 rm -rf frameworks/libs/net && git clone https://github.com/kuntao-development/frameworks_libs_net -b lineage-20.0 frameworks/libs/net
 
-echo 'Cloning deskclock [6/17]'
+echo 'Cloning deskclock [6/19]'
 # DeskClock
-rm -rf packages/apps/DeskClock && git clone https://github.com/kuntao-development/android_packages_apps_DeskClock -b lineage-20.0 packages/apps/DeskClock
+rm -rf packages/apps/DeskClock && git clone https://github.com/Astridxx/android_packages_apps_DeskClock -b thirteen packages/apps/DeskClock
 
-echo 'Cloning connectivity modules [7/17]'
+echo 'Cloning connectivity modules [7/19]'
 # Connectivity
-rm -rf packages/modules/Connectivity && git clone https://github.com/kuntao-development/android_packages_modules_Connectivity -b triton packages/modules/Connectivity
+rm -rf packages/modules/Connectivity && git clone https://github.com/Astridxx/packages_modules_Connectivity -b xt packages/modules/Connectivity
 
-echo 'Cloning networkstack modules [8/17]'
+echo 'Cloning networkstack modules [8/19]'
 # Networkstack
-rm -rf packages/modules/NetworkStack && git clone https://github.com/kuntao-development/android_packages_modules_NetworkStack -b lineage-20.0 packages/modules/NetworkStack
+rm -rf packages/modules/NetworkStack && git clone https://github.com/Astridxx/packages_modules_NetworkStack -b xt packages/modules/NetworkStack
 
-echo 'Cloning sepolicy legacy um [9/17]'
+echo 'Cloning sepolicy legacy um [9/19]'
 # Sepolicy-legacy-um
-rm -rf device/qcom/sepolicy-legacy-um && git clone https://github.com/kuntao-development/android_device_qcom_sepolicy -b lineage-20.0-legacy-um device/qcom/sepolicy-legacy-um
+rm -rf device/qcom/sepolicy-legacy-um && git clone https://github.com/kuntao-development/android_device_qcom_sepolicy -b xt-legacy-um device/qcom/sepolicy-legacy-um
 
-echo 'Cloning system netd [10/17]'
+echo 'Cloning system memory lmkd [10/19]'
+# Lmkd
+rm -rf system/memory/lmkd && git clone https://github.com/kuntao-development/android_system_memory_lmkd -b xt system/memory/lmkd
+
+echo 'Cloning system netd [11/19]'
 # Netd
 rm -rf system/netd && git clone https://github.com/kuntao-development/android_system_netd -b lineage-20.0 system/netd
 
-echo 'Cloning system bpf [11/17]'
+echo 'Cloning system bpf [12/19]'
 # Bpf
 rm -rf system/bpf && git clone https://github.com/kuntao-development/android_system_bpf -b lineage-20.0 system/bpf
 
-echo 'Cloning system libhidl [12/17]'
+echo 'Cloning system libhidl [13/19]'
 # Hidl
 rm -rf system/libhidl && git clone https://github.com/kuntao-development/android_system_libhidl -b lineage-20.0 system/libhidl
 
-echo 'Cloning system sepolicy [13/17]'
+echo 'Cloning system sepolicy [14/19]'
 # Sepolicy
 rm -rf system/sepolicy && git clone https://github.com/LineageOS-UL/android_system_sepolicy -b lineage-20.0 system/sepolicy
 
-echo 'Cloning system core [14/17]'
+echo 'Cloning system core [15/19]'
 # Core
-rm -rf system/core && git clone https://github.com/kuntao-development/android_system_core -b triton system/core
+rm -rf system/core && git clone https://github.com/Astridxx/system_core -b xt system/core
 
-echo 'Cloning system logging [15/17]'
+echo 'Cloning system logging [16/19]'
 # Logging
 rm -rf system/logging && git clone https://github.com/kuntao-development/android_system_logging -b lineage-20.0 system/logging
 
-echo 'Cloning vendor fm [16/17]'
+echo 'Cloning vendor fm [17/19]'
 # Fm
 rm -rf vendor/qcom/opensource/fm-commonsys && git clone https://github.com/kuntao-development/android_vendor_qcom_opensource_fm-commonsys -b lineage-20.0 vendor/qcom/opensource/fm-commonsys
 
-echo 'Cloning vendor awaken [17/17]'
-# Awaken vendor
-rm -rf vendor/awaken && git clone https://github.com/kuntao-development/android_vendor_awaken -b triton vendor/awaken
+echo 'Cloning vendor xtended [18/19]'
+# Xtended vendor
+rm -rf vendor/xtended && git clone https://github.com/Astridxx/vendor_xtended -b xt vendor/xtended
+
+echo 'Cloning clang 12 [19/19]'
+# Clang
+git clone --depth=1 https://github.com/LineageOS/android_prebuilts_clang_kernel_linux-x86_clang-r416183b -b lineage-20.0 prebuilts/clang/kernel/linux-x86/clang-r416183b
 
 # ************************************
 # Fix Bluetooth calling on legacy SOCs
