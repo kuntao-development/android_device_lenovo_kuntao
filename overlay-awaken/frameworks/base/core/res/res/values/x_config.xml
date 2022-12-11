@@ -56,6 +56,9 @@
          config to 7. -->
     <integer name="config_deviceHardwareWakeKeys">65</integer>
 
+    <!-- Should we filter any display modes which are unmapped? -->
+    <bool name="config_filterDisplayModes">true</bool>
+
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <bool name="config_cleanupUnusedFingerprints">false</bool>
 
