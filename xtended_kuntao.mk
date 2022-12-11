@@ -24,21 +24,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
 
-# Inherit some common AwakenOS stuff.
-$(call inherit-product, vendor/awaken/config/common_full_phone.mk)
+# Inherit some common Xtended stuff.
+$(call inherit-product, vendor/xtended/config/common_full_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lenovo/kuntao/device.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := awaken_kuntao
+PRODUCT_NAME := xtended_kuntao
 PRODUCT_DEVICE := kuntao
 PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Lenovo P2a42
 PRODUCT_MANUFACTURER := LENOVO
 
-# Awaken
-USE_PIXEL_CHARGING := true
+# Xtended
+PROCESSOR_MODEL := msm8953
+XTENDED_BUILD_MAINTAINER := Akshay
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-lenovo
 
