@@ -49,6 +49,10 @@ log.tag.synaFpHal=W
 log.tag.SynapticsLIB=W
 log.tag.synaTransport=W
 
+# Fling velocities
+ro.min.fling_velocity=160 
+ro.max.fling_velocity=20000
+
 # LMKD
 ro.lmk.use_psi=false
 ro.lmk.low=1001
