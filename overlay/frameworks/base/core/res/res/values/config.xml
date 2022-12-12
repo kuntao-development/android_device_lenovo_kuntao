@@ -467,7 +467,7 @@
 
     <!-- List of comma separated package names for which we the system will not show crash, ANR,
          etc. dialogs. -->
-    <string name="config_appsNotReportingCrashes">com.google.android.tts,com.android.statementservice</string>
+    <string name="config_appsNotReportingCrashes">org.codeaurora.snapcam,com.android.vending,com.google.android.tts,com.android.statementservice,com.android.systemui</string>
 
     <!-- The max scale for the wallpaper when it's zoomed in -->
     <item name="config_wallpaperMaxScale" format="float" type="dimen">1.00</item>
