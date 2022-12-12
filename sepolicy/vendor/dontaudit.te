@@ -1,3 +1,5 @@
+dontaudit atrace self:capability { dac_read_search };
+
 # Silence dalvikcache logspam
 dontaudit untrusted_app dalvikcache_data_file:file execmod;
 
@@ -35,6 +37,15 @@ dontaudit untrusted_app {
 dontaudit untrusted_app_27 {
     proc_pid_max
     proc_diskstats
+}:file { read open getattr };
+
+dontaudit untrusted_app_30 {
+    proc
+    proc_tty_drivers
+    serialno_prop
+    oem_unlock_prop
+    qemu_hw_prop
+    qemu_sf_lcd_density_prop
 }:file { read open getattr };
 
 dontaudit untrusted_app system_file:file execmod;
