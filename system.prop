@@ -37,6 +37,7 @@ drm.service.enabled=true
 debug.gralloc.enable_fb_ubwc=1
 debug.sf.recomputecrop=0
 debug.sf.latch_unsignaled=1
+debug.sf.disable_backpressure=1
 debug.hwui.renderer=opengl
 debug.renderengine.backend=threaded
 debug.sf.disable_client_composition_cache=1
