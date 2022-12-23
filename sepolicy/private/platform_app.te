@@ -1,2 +1,5 @@
 # Radio
 get_prop(platform_app, radio_cdma_ecm_prop)
+
+# Nfc tile
+allow platform_app nfc_service:service_manager find;
