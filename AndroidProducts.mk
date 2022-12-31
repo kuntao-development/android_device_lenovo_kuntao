@@ -14,7 +14,7 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/awaken_kuntao.mk
+    $(LOCAL_DIR)/derp_kuntao.mk
 
 COMMON_LUNCH_CHOICES := \
-    awaken_kuntao-userdebug
+    derp_kuntao-userdebug
