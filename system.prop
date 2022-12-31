@@ -47,6 +47,10 @@ debug.sdm.support_writeback=0
 debug.hwui.skia_atrace_enabled=false
 renderthread.skia.reduceopstasksplitting=false
 
+# Fling velocities
+ro.min.fling_velocity=160 
+ro.max.fling_velocity=20000
+
 # Fingerprint
 log.tag.synaFpHal=W
 log.tag.SynapticsLIB=W
