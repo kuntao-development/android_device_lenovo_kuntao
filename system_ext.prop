@@ -21,6 +21,9 @@ bluetooth.profile.pan.nap.enabled?=true
 bluetooth.profile.pan.panu.enabled?=true
 bluetooth.profile.pbap.server.enabled?=true
 
+# Cast
+media.wfd.max_resolution=5
+
 # MTE
 arm64.memtag.process.system_server=off
 
