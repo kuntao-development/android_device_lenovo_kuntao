@@ -58,6 +58,14 @@
     <!-- True if the home button has the ability to wake up phone from lockscreen-->
     <bool name="config_HomeWakeButton">true</bool>
 
+    <string-array name="config_indicatorExemptedPackageNames" translatable="false">
+        <item>com.android.bluetooth</item>
+        <item>com.android.phone</item>
+        <item>com.android.printspooler</item>
+        <item>com.android.networkstack.tethering</item>
+        <item>org.pixelexperience.faceunlock</item>
+    </string-array>
+
      <!-- Default value for proximity check on screen wake
       NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)-->
      <bool name="config_proximityCheckOnWake">true</bool>
