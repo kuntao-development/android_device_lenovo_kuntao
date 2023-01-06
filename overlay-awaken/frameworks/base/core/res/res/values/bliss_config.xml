@@ -64,6 +64,9 @@
      <integer name="config_proximityCheckTimeout">300</integer>
      <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool>
 
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_supportSmartPixels">true</bool>
+
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <bool name="config_cleanupUnusedFingerprints">false</bool>
 
