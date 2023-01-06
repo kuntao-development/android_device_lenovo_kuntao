@@ -3,7 +3,7 @@
 #
 
 # Cast
-persist.wfd.legacy.video.mode=5
+media.wfd.max_resolution=5
 
 # Radio
 ro.telephony.use_old_mnc_mcc_format=true
