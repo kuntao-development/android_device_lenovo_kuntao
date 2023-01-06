@@ -6,11 +6,67 @@ android_app_import {
 	dex_preopt: {
 		enabled: false,
 	},
-    overrides: [
+        overrides: [
         "Camera2",
         ],
-    optional_uses_libs: [
+        optional_uses_libs: [
         "androidx.camera.extensions.impl",
         ],
 	product_specific: true,
+}
+
+android_app_import {
+	name: "SettingsIntelligenceGooglePrebuilt",
+	owner: "google",
+	apk: "SettingsIntelligenceGooglePrebuilt.apk",
+	overrides: ["SettingsIntelligence"],
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
+    required: [
+        "privapp_whitelist_com.google.android.settings.intelligence",
+        "default-permissions_com.google.android.settings.intelligence"
+    ],
+}
+
+android_app_import {
+	name: "TurboPrebuilt",
+	owner: "google",
+	apk: "TurboPrebuilt.apk",
+	presigned: true,
+	dex_preopt: {
+		enabled: false,
+	},
+	privileged: true,
+	product_specific: true,
+    required: [
+        "privapp_whitelist_com.google.android.apps.turbo"
+    ],
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_com.google.android.apps.turbo",
+    product_specific: true,
+    sub_dir: "permissions",
+    src: "privapp_whitelist_com.google.android.apps.turbo.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "privapp_whitelist_com.google.android.settings.intelligence",
+    product_specific: true,
+    sub_dir: "permissions",
+    src: "privapp_whitelist_com.google.android.settings.intelligence.xml",
+    filename_from_src: true,
+}
+
+prebuilt_etc {
+    name: "default-permissions_com.google.android.settings.intelligence",
+    product_specific: true,
+    sub_dir: "default-permissions",
+    src: "default-permissions_com.google.android.settings.intelligence.xml",
+    filename_from_src: true,
 }
