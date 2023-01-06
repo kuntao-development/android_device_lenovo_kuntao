@@ -50,10 +50,6 @@ debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
 renderthread.skia.reduceopstasksplitting=false
 
-# Fling velocities
-ro.min.fling_velocity=160 
-ro.max.fling_velocity=20000
-
 # Fingerprint
 log.tag.synaFpHal=W
 log.tag.SynapticsLIB=W
