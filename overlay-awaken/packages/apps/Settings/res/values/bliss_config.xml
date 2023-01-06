@@ -17,4 +17,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indicates whether device has a front facing fingerprint sensor (not udfps). -->
     <bool name="config_is_front_facing_fps" translatable="false">true</bool>
+
+   <!-- Battery Health -->
+    <string name="config_batCurCap">/sys/class/power_supply/battery/charge_full</string>
+    <string name="config_batDesCap">/sys/class/power_supply/battery/charge_full_design</string>
+    <string name="config_batChargeCycle">/sys/class/power_supply/bms/cycle_count</string>
+    <bool name="config_supportBatteryHealth">true</bool>
 </resources>
