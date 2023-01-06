@@ -14,6 +14,9 @@ vendor.bluetooth.soc=smd
 # Bpf
 ro.kernel.ebpf.supported=false
 
+# Disable blur on app-launch
+ro.launcher.blur.appLaunch=0
+
 # Camera
 persist.vendor.camera.display.umax=1920x1080
 persist.vendor.camera.display.lmax=1280x720
