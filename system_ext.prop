@@ -7,3 +7,6 @@ persist.wfd.legacy.video.mode=5
 
 # Radio
 ro.telephony.use_old_mnc_mcc_format=true
+
+# MTE
+arm64.memtag.process.system_server=off
