@@ -25,6 +25,10 @@ binder_call(system_app, hal_alarm_qti_default);
 # Aware
 get_prop(system_app, vendor_aware_available_prop);
 
+# Battery Health
+r_dir_file(system_app, sysfs_battery_supply);
+r_dir_file(system_app, sysfs_usb_supply);
+
 # FM
 allow system_app fm_radio_device:chr_file r_file_perms;
 
