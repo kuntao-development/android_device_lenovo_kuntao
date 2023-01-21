@@ -1,8 +1,5 @@
 dontaudit iorapd self:capability { dac_read_search };
 
-# Silence dalvikcache logspam
-dontaudit untrusted_app dalvikcache_data_file:file execmod;
-
 dontaudit untrusted_app {
     sysfs_net
     sysfs_switch
@@ -38,6 +35,13 @@ dontaudit untrusted_app_27 {
     proc_pid_max
     proc_diskstats
 }:file { read open getattr };
+
+dontaudit untrusted_app {
+    system_file
+    system_lib_file
+    app_data_file
+    dalvikcache_data_file
+}:file execmod;
 
 dontaudit untrusted_app self:netlink_route_socket bind;
 
