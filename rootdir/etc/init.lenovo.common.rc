@@ -48,3 +48,6 @@ on post-fs
 on post-fs-data
     # Fingerprint
     mkdir /data/validity 0775 system system encryption=Require
+
+    # Sensors
+    mkdir /data/STSensorHAL 0775 system system encryption=Require
