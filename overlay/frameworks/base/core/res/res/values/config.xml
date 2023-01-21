@@ -544,7 +544,7 @@
 
     <!-- List of comma separated package names for which we the system will not show crash, ANR,
          etc. dialogs. -->
-    <string name="config_appsNotReportingCrashes">com.google.android.tts,com.android.statementservice</string>
+    <string name="config_appsNotReportingCrashes">com.google.android.tts,com.android.statementservice,com.mgoogle.android.gms</string>
 
     <!-- Disable rounded corners on windows to improve graphics performance -->
     <bool name="config_supportsRoundedCornersOnWindows">false</bool>
