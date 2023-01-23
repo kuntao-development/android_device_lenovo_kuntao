@@ -214,7 +214,7 @@ on property:hw.fm.init=0
 on property:hw.fm.init=1
     write /sys/module/radio_iris_transport/parameters/fmsmd_set 1
 
-service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
+service vendor.irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class core
     user root
     oneshot
