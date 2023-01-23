@@ -278,10 +278,7 @@ on property:init.svc.surfaceflinger=restarting
 on charger
     setprop sys.usb.configfs 0
     start qcom-post-boot
-    start smart_charger
     start vendor.power_off_alarm
-    chown system system /sys/class/leds/rgb/brightness
-    write /sys/class/leds/rgb/brightness 255
 
 service vendor.audio-hal /vendor/bin/hw/android.hardware.audio.service
     override
