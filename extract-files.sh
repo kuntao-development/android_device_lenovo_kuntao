@@ -59,7 +59,7 @@ function blob_fixup() {
             sed -i -e 's|xliff=\"urn:oasis:names:tc:xliff:document:1.2|android=\"http:\/\/schemas.android.com\/apk\/res\/android|' "${2}"
             ;;
         system_ext/lib64/libdpmframework.so)
-           "${PATCHELF}" --add-needed "libdpmframework_shim.so" "${2}"
+            grep -q "libdpmframework_shim.so" "${2}" || "${PATCHELF}" --add-needed "libdpmframework_shim.so" "${2}"
             ;;
         system_ext/lib64/lib-imsvideocodec.so)
             grep -q "libvt_shim.so" "${2}" || "${PATCHELF}" --add-needed "libvt_shim.so" "${2}"
