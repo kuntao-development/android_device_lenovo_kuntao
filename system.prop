@@ -51,6 +51,17 @@ log.tag.synaFpHal=W
 log.tag.SynapticsLIB=W
 log.tag.synaTransport=W
 
+# Log
+persist.log.tag.TrafficControllerJni=S
+persist.log.tag.BpfNetMaps=S
+persist.log.tag.NetworkStats=S
+persist.log.tag.BpfNetworkStats=S
+persist.log.tag.ResourcesCompat=S
+persist.log.tag.QC-time-services=S
+persist.log.tag.OMXNodeInstance=S
+persist.log.tag.ziparchive=S
+persist.log.tag.StrictMode=S
+
 # IMS
 persist.dbg.volte_avail_ovr=1
 
