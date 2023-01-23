@@ -21,5 +21,8 @@ bluetooth.profile.pan.nap.enabled?=true
 bluetooth.profile.pan.panu.enabled?=true
 bluetooth.profile.pbap.server.enabled?=true
 
+# MTE
+arm64.memtag.process.system_server=off
+
 # Radio
 ro.telephony.use_old_mnc_mcc_format=true
