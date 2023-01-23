@@ -25,6 +25,9 @@
 # NFC
 /dev/bcm2079x-i2c                                                          u:object_r:nfc_device:s0
 
+# MMC
+/sys/devices/soc/7824900.sdhci/mmc_host/mmc0/mmc0:0001/block/mmcblk0/queue/discard_max_bytes  u:object_r:sysfs_mmc_host:s0
+
 # Lenovo parts
 /sys/devices/platform/kcal_ctrl.0(/.*)?                                     u:object_r:sysfs_kcal:s0
 /sys/devices/virtual/timed_output/vibrator/vtg_level                   u:object_r:sysfs_vibrator:s0
