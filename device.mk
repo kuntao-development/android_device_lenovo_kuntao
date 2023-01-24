@@ -201,9 +201,8 @@ PRODUCT_PACKAGES += \
 
 # FM
 PRODUCT_PACKAGES += \
-    FM2 \
-    libqcomfm_jni \
-    qcom.fmradio
+    RevampedFMRadio \
+    libqcomfmjni:64
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
