@@ -6,7 +6,7 @@ rm -rf kernel/lenovo/msm8953 && git clone --depth=1 https://github.com/kuntao-de
 
 echo 'Cloning vendor tree [2/18]'
 # Vendor
-rm -rf vendor/lenovo/kuntao && git clone https://github.com/kuntao-development/proprietary_vendor_lenovo -b lineage-20.0 vendor/lenovo/kuntao
+rm -rf vendor/lenovo/kuntao && git clone https://github.com/kuntao-development/proprietary_vendor_lenovo_kuntao -b lineage-20.0 vendor/lenovo/kuntao
 
 echo 'Cloning frameworks base [3/18]'
 # Frameworks base
@@ -20,13 +20,13 @@ echo 'Cloning frameworks libs net [5/18]'
 # Libs net
 rm -rf frameworks/libs/net && git clone https://github.com/kuntao-development/frameworks_libs_net -b lineage-20.0 frameworks/libs/net
 
-echo 'Cloning frameworks opt telephony [6/18]'
-# Telephony
-rm -rf frameworks/opt/telephony && git clone https://github.com/kuntao-development/android_frameworks_opt_telephony -b lineage-20.0 frameworks/opt/telephony
-
-echo 'Cloning connectivity modules  [7/18]'
+echo 'Cloning connectivity modules [6/18]'
 # Connectivity
 rm -rf packages/modules/Connectivity && git clone https://github.com/kuntao-development/android_packages_modules_Connectivity -b triton packages/modules/Connectivity
+
+echo 'Cloning display hal [7/18]'
+# Clang
+rm -rf hardware/qcom-caf/msm8996/display && git clone https://github.com/kuntao-development/android_hardware_qcom_display -b lineage-20.0-caf-msm8996 hardware/qcom-caf/msm8996/display
 
 echo 'Cloning networkstack modules [8/18]'
 # Networkstack
@@ -38,7 +38,7 @@ rm -rf device/qcom/sepolicy-legacy-um && git clone https://github.com/kuntao-dev
 
 echo 'Cloning system netd [10/18]'
 # Netd
-rm -rf system/netd && git clone https://github.com/kuntao-development/android_system_netd -b lineage-20.0 system/netd
+rm -rf system/netd && git clone https://github.com/kuntao-development/platform_system_netd -b lineage-20.0 system/netd
 
 echo 'Cloning system bpf [11/18]'
 # Bpf
@@ -50,7 +50,7 @@ rm -rf system/libhidl && git clone https://github.com/kuntao-development/android
 
 echo 'Cloning system sepolicy [13/18]'
 # Sepolicy
-rm -rf system/sepolicy && git clone https://github.com/LineageOS-UL/android_system_sepolicy -b lineage-20.0 system/sepolicy
+rm -rf system/sepolicy && git clone https://github.com/kuntao-development/android_system_sepolicy -b lineage-20.0 system/sepolicy
 
 echo 'Cloning system core [14/18]'
 # Core
@@ -60,16 +60,15 @@ echo 'Cloning system logging [15/18]'
 # Logging
 rm -rf system/logging && git clone https://github.com/kuntao-development/android_system_logging -b lineage-20.0 system/logging
 
-echo 'Cloning vendor fm [16/18]'
-# Fm
-rm -rf vendor/qcom/opensource/fm-commonsys && git clone https://github.com/kuntao-development/android_vendor_qcom_opensource_fm-commonsys -b lineage-20.0 vendor/qcom/opensource/fm-commonsys
-
-echo 'Cloning vendor awaken [17/18]'
+echo 'Cloning vendor awaken [16/18]'
 # Awaken vendor
 rm -rf vendor/awaken && git clone https://github.com/kuntao-development/android_vendor_awaken -b triton vendor/awaken
 
-echo 'Cloning clang 12 [18/18]'
-# Clang
-git clone --depth=1 https://github.com/ArrowOS-Devices/android_prebuilts_clang_host_linux-x86_clang-r416183b -b master prebuilts/clang/host/linux-x86/clang-r416183b
+echo 'Cloning revamped fmradio [17/18]'
+# Logging
+git clone https://github.com/iusmac/RevampedFMRadio -b qcom packages/apps/RevampedFMRadio
+
+echo 'Reseting hwui to android-13.0.0_r13 [18/18]'
+cd frameworks/base && wget https://raw.githubusercontent.com/kuntao-development/android_device_lenovo_kuntao/awaken-13.0/patch/0009-hwui-reset-to-android-13.0.0_r13.patch && patch -p1 < *.patch && cd -
 
 echo 'Completed, proceeding to lunch'
