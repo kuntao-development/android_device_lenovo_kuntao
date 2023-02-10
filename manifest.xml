@@ -165,6 +165,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <fqname>@1.9::IDisplayConfig/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.lineage.livedisplay</name>
+        <transport>hwbinder</transport>
+        <fqname>@2.0::IAdaptiveBacklight/default</fqname>
+        <fqname>@2.0::IDisplayModes/default</fqname>
+        <fqname>@2.0::IPictureAdjustment/default</fqname>
+        <fqname>@2.0::ISunlightEnhancement/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.display.postproc</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IDisplayPostproc/default</fqname>
