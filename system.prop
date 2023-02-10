@@ -53,15 +53,26 @@ log.tag.SynapticsLIB=W
 log.tag.synaTransport=W
 
 # Log
+persist.log.tag.QCamera=S
+persist.log.tag.mm-3a-core=S
+persist.log.tag.mm-camera=S
+persist.log.tag.adbd=S
+persist.log.tag.smart_charger=S
+persist.log.tag.TrafficController=S
 persist.log.tag.TrafficControllerJni=S
-persist.log.tag.BpfNetMaps=S
 persist.log.tag.NetworkStats=S
+persist.log.tag.BpfNetMaps=S
 persist.log.tag.BpfNetworkStats=S
+persist.log.tag.BpfInterfaceMapUpdater=S
+persist.log.tag.BpfHandler=S
 persist.log.tag.ResourcesCompat=S
 persist.log.tag.QC-time-services=S
 persist.log.tag.OMXNodeInstance=S
 persist.log.tag.ziparchive=S
 persist.log.tag.StrictMode=S
+persist.log.tag.ANDR-PERF-RESOURCE=S
+persist.log.tag.ANDR-PERF-RESOURCEQS=S
+persist.log.tag.ANDR-PERF-OPTSHANDLER=S
 
 # LMKD
 ro.lmk.use_psi=false
