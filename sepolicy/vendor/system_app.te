@@ -1,6 +1,3 @@
-# Zram
-r_dir_file(system_app, sysfs_zram)
-
 # Lenovo parts
 allow system_app {
     sysfs_kcal

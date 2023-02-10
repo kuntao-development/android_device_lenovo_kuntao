@@ -41,8 +41,6 @@ dontaudit untrusted_app_30 {
     proc_tty_drivers
     serialno_prop
     oem_unlock_prop
-    qemu_hw_prop
-    qemu_sf_lcd_density_prop
 }:file { read open getattr };
 
 dontaudit untrusted_app {

@@ -7,6 +7,3 @@ allow platform_app sysfs_fps:file rw_file_perms;
 
 # Audio
 get_prop(platform_app, audio_config_prop);
-
-# Zram
-r_dir_file(platform_app, sysfs_zram)
