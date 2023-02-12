@@ -42,13 +42,13 @@ debug.sf.disable_backpressure=1
 debug.sf.recomputecrop=0
 debug.sf.latch_unsignaled=1
 persist.sys.hwui.renderer=opengl
-debug.renderengine.backend=skiaglthreaded
+debug.renderengine.backend=threaded
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_transaction_tracing=false
 debug.sf.predict_hwc_composition_strategy=0
 debug.sdm.support_writeback=0
 debug.hwui.skia_atrace_enabled=false
-renderthread.skia.reduceopstasksplitting=true
+renderthread.skia.reduceopstasksplitting=false
 
 # Fingerprint
 log.tag.synaFpHal=W
