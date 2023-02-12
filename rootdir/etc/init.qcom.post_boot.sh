@@ -197,6 +197,7 @@ echo 0 > /sys/module/process_reclaim/parameters/enable_process_reclaim
 echo 0 > /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk
 
 setprop vendor.post_boot.parsed 1
+setprop vendor.target.init.complete 1
 
 # Let kernel know our image version/variant/crm_version
 if [ -f /sys/devices/soc0/select_image ]; then
